@@ -51,6 +51,6 @@ const EpisodeAnimeSchema = new Schema({
 });
 
 module.exports = EpisodeAnime = mongoose.model(
-  "episodeAnime",
+  "episodeanimes",
   EpisodeAnimeSchema
 );

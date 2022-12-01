@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 const multer = require("multer");
 
 const Anime = require("../../models/Anime");

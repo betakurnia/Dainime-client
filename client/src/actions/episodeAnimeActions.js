@@ -9,31 +9,28 @@ import {
   ANIME_LOADING_FALSE
 } from "./types";
 
-import axios from "axios";
+import httpClient from '../utils/httpClient'
 
-// Get recent release
 export const getLastRelease = (page, isTrue = false) => dispatch => {
   if (isTrue) {
     dispatch(setEpisodeLoading());
   }
-  axios
+  httpClient
     .get(`/api/recent-release/?page=${page}`)
     .then(res => dispatch({ type: GET_LAST_RELEASE, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Get recent release2
 export const getLastRelease2 = limit => dispatch => {
-  axios
+  httpClient
     .get(`/api/recent-release2/?limit=${limit}`)
     .then(res => dispatch({ type: GET_LAST_RELEASED, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Get episode
 export const getEpisode = (title, episode) => dispatch => {
   dispatch(setAnimeLoading());
-  axios
+  httpClient
     .get(`/api/episode-anime/${title}/${episode}`)
     .then(res => {
       dispatch({ type: GET_EPISODE, payload: res.data });
@@ -43,40 +40,35 @@ export const getEpisode = (title, episode) => dispatch => {
     .catch(err => console.log(err.response.data));
 };
 
-// Get recent episode
 export const getLastEpisode = (title, skip, limit) => dispatch => {
-  axios
+  httpClient
     .get(`/api/recent-episode/${title}`)
     .then(res => dispatch({ type: GET_LAST_EPISODE, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Get all episode
 export const getAllEpisode = (title, page, isTrue = false) => dispatch => {
   if (isTrue) {
     dispatch(setEpisodeLoading());
   }
-  axios
+  httpClient
     .get(`/api/all-episode/${title}/?page=${page}`)
     .then(res => dispatch({ type: GET_ALL_EPISODE, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Episode loading
 export const setEpisodeLoading = () => {
   return {
     type: EPISODE_LOADING
   };
 };
 
-// Anime loading
 export const setAnimeLoading = () => {
   return {
     type: ANIME_LOADING
   };
 };
 
-// Anime loading false
 export const setLoadingFalse = () => {
   return {
     type: ANIME_LOADING_FALSE

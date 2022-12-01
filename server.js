@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser")
+require('dotenv').config()
 
 // Route
 const episodeAnime = require("./routes/api/episodeAnime");
@@ -12,12 +13,6 @@ const app = express();
 
 const cors = require("cors");
 
-// file
-const path = require("path");
-
-// DB Config
-const db = require("./config/keys").mongoURI;
-
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,7 +20,7 @@ app.use(cors());
 app.use("./client/src/image", express.static("public"));
 
 mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 

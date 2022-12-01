@@ -7,13 +7,11 @@ import {
   FIND_ANIME,
   ANIME_LOADING
 } from "./types";
+import httpClient from '../utils/httpClient'
 
-import axios from "axios";
-
-// Get Anime
 export const getAnime = title => dispatch => {
   dispatch(setAnimeLoading());
-  axios
+  httpClient
     .get(`/api/anime/${title}`)
     .then(res => {
       dispatch({ type: GET_ANIME, payload: res.data });
@@ -22,10 +20,9 @@ export const getAnime = title => dispatch => {
     .catch(err => console.log(err.response.data));
 };
 
-// Get ongoing anime
 export const getOngoingAnime = () => dispatch => {
   dispatch(setAnimeLoading());
-  axios
+  httpClient
     .get("/api/ongoing")
     .then(res => {
       dispatch({ type: GET_ONGOING_ANIME, payload: res.data });
@@ -33,57 +30,51 @@ export const getOngoingAnime = () => dispatch => {
     .catch(err => console.log(err.response.data));
 };
 
-// Get anime list
 export const getAnimeList = (page, isTrue = false) => dispatch => {
   if (isTrue) {
     dispatch(setAnimeLoading());
   }
-  axios
+  httpClient
     .get(`/api/anime-list/?page=${page}`)
     .then(res => dispatch({ type: GET_ANIME_LIST, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Get anime list by sort
 export const getAnimeListSort = (sort, page, isTrue = false) => dispatch => {
   if (isTrue) {
     dispatch(setAnimeLoading());
   }
-  axios
+  httpClient
     .get(`/api/anime-list/${sort}/?page=${page}`)
     .then(res => dispatch({ type: GET_ANIME_LIST, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Get new season
 export const getNewSeason = (page, isTrue = false) => dispatch => {
   if (isTrue) {
     dispatch(setAnimeLoading());
   }
-  axios
+  httpClient
     .get(`/api/new-season/?page=${page}`)
     .then(res => dispatch({ type: GET_NEW_SEASON, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Get schedule
 export const getSchedule = () => dispatch => {
   dispatch(setAnimeLoading());
-  axios
+  httpClient
     .get("/api/schedule")
     .then(res => dispatch({ type: GET_SCHEDULE, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Find anime
 export const findAnime = anime => dispatch => {
-  axios
+  httpClient
     .get(`/api/find-anime/?anime=${anime}`)
     .then(res => dispatch({ type: FIND_ANIME, payload: res.data }))
     .catch(err => console.log(err.response.data));
 };
 
-// Anime loading
 export const setAnimeLoading = () => {
   return {
     type: ANIME_LOADING

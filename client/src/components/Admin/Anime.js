@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-// npm
 import axios from "axios";
 
 class Anime extends Component {

@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 
-// Redux
 import { Provider } from "react-redux";
 import store from "./store";
 
-// npm
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-// CSS
 import "./App.css";
 
-// Component page
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import Home from "./components/Pages/Home/Home";
@@ -20,12 +16,8 @@ import NewSeasons from "./components/Pages/NewSeason/NewSeasons";
 import Schedules from "./components/Pages/Schedule/Schedules";
 import Contact from "./components/Pages/Footer/Contact";
 import About from "./components/Pages/Footer/About";
-
-// Component non page
 import Anime from "./components/Anime/Anime/Anime";
 import EpisodeAnime from "./components/Anime/AnimeEpisode/EpisodeAnime";
-
-// Component admin
 import AnimeAdmin from "./components/Admin/Anime";
 import EpisodeAnimeADmin from "./components/Admin/EpisodeAnime";
 

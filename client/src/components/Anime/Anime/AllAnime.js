@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import dateFormat from "dateformat";
-
-// Redux
 import { connect } from "react-redux";
 import { getAllEpisode } from "../../../actions/episodeAnimeActions";
-
-// npm
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
