@@ -1,0 +1,22 @@
+{
+  "arrowParens": "always",
+  "semi": true,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "bracketSameLine": false,
+  "singleQuote": true,
+  "quoteProps": "consistent",
+  "jsxSingleQuote": false,
+  "importOrder": [
+    "^react(.*)",
+    "<THIRD_PARTY_MODULES>",
+    "@/(.*)",
+    "constants/(.*)$",
+    "AppContext/(.*)$",
+    "^components/(.*)$",
+    "^[./]",
+    "^[.]/[-a-zA-Z0-9_]+[.](css|scss)$"
+  ],
+  "importOrderSortSpecifiers": true
+}
