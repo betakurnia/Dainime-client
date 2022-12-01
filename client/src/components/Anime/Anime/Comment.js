@@ -1,6 +1,4 @@
 import React from "react";
-
-// npm
 import Disqus from "disqus-react";
 
 function Comment(props) {

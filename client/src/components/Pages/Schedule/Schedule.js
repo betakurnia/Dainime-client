@@ -1,6 +1,4 @@
 import React from "react";
-
-// npm package
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
 

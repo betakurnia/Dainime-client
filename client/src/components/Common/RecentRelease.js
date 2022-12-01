@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-
-// Redux
 import { connect } from "react-redux";
 import { getLastRelease2 } from "../../actions/episodeAnimeActions";
-
-// npm
 import { Link } from "react-router-dom";
 
 class RecentRelease extends Component {

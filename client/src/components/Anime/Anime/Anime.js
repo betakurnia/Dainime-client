@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-// componenets
 import AllAnime from "./AllAnime";
 import AnimeInfo from "./AnimeInfo";
 import RecentRelease from "../../Common/RecentRelease";
@@ -8,14 +6,10 @@ import AnimePlaceHolder from "../../Common/AnimePlaceHolder";
 import RecentReleasePlaceHolder from "../../Common/RecentReleasePlaceHolder";
 import Spinner from "../../Common/Spinner";
 import Comment from "./Comment";
-
-// Redux
 import { connect } from "react-redux";
 import { getAnime } from "../../../actions/animeActions";
 import { getAllEpisode } from "../../../actions/episodeAnimeActions";
 import { getAllEpisodePageCount } from "../../../actions/helperActions";
-
-// npm
 import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 

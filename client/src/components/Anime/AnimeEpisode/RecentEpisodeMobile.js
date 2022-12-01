@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-
-// Redux
 import { getLastEpisode } from "../../../actions/episodeAnimeActions";
 import { getEpisodeCount } from "../../../actions/helperActions";
-
-// npm
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";

@@ -1,18 +1,12 @@
 import React, { Component } from "react";
-
-// component
 import AllAnimeList from "./AllAnimeList";
 import RecentRelease from "../../Common/RecentRelease";
 import AnimePlaceHolder from "../../Common/AnimePlaceHolder";
 import RecentReleasePlaceHolder from "../../Common/RecentReleasePlaceHolder";
 import Spinner from "../../Common/Spinner";
-
-// Redux
 import { connect } from "react-redux";
 import { getAnimeList, getAnimeListSort } from "../../../actions/animeActions";
 import { getAnimeListPageCount } from "../../../actions/helperActions";
-
-// npm
 import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 

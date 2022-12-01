@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-
-// Redux
 import { connect } from "react-redux";
 import { getNewSeason } from "../../../actions/animeActions";
-
-// npm package
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import dateFormat from "dateformat";

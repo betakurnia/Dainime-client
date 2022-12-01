@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-// Component
 import HeaderAnime from "./HeaderAnime";
 import RecentEpisode from "./RecentEpisode";
 import RecentEpisodeMobile from "./RecentEpisodeMobile";
@@ -9,12 +7,8 @@ import RecentRelease from "../../Common/RecentRelease";
 import RecentReleasePlaceHolder from "../../Common/RecentReleasePlaceHolder";
 import EpisodeAnimePlaceHolder from "../../Common/EpisodeAnimePlaceHolder";
 import Spinner from "../../Common/Spinner";
-
-// Redux
 import { connect } from "react-redux";
 import { getEpisode } from "../../../actions/episodeAnimeActions";
-
-// npm
 import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 import Disqus from "disqus-react";

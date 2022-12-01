@@ -1,13 +1,7 @@
 import React, { Component } from "react";
-
-// Redux
 import { connect } from "react-redux";
-
-// Component
 import RecentRelease from "../../Common/RecentRelease";
 import Spinner from "../../Common/Spinner";
-
-// npm
 import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 

@@ -1,6 +1,4 @@
 import React from "react";
-
-// npm
 import dateFormat from "dateformat";
 
 function AnimeInfo(props) {

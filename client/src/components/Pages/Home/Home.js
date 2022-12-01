@@ -1,19 +1,13 @@
 import React, { Component } from "react";
-
-// Component
 import HomeAnime from "./HomeAnime";
 import OngoingAnime from "./OngoingAnime";
 import AnimePlaceHolder from "../../Common/AnimePlaceHolder";
 import OngoingPlaceHolder from "../../Common/OngoingPlaceHolder";
 import Spinner from "../../Common/Spinner";
-
-// Redux
 import { connect } from "react-redux";
 import { getLastRelease } from "../../../actions/episodeAnimeActions";
 import { getOngoingAnime } from "../../../actions/animeActions";
 import { getLastReleasePageCount } from "../../../actions/helperActions";
-
-// npm
 import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 

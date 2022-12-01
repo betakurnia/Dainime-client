@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-// npm package
 import { Link } from "react-router-dom";
 
 class HeaderAnime extends Component {

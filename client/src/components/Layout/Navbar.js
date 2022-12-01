@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-
-// Redux
 import { connect } from "react-redux";
 import { findAnime } from "../../actions/animeActions";
-
-// npm
 import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import { NavLink, Link } from "react-router-dom";
 import classNames from "classnames";

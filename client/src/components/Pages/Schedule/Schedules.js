@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-
-// Redux
 import { connect } from "react-redux";
 import { getSchedule } from "../../../actions/animeActions";
-
-// Component
 import Schedule from "./Schedule";
 import SchedulePlaceHolder from "../../Common/SchedulePlaceHolder";
 import Spinner from "../../Common/Spinner";
-
-// npm
 import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 

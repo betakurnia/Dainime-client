@@ -1,7 +1,5 @@
 import React from "react";
 import Disqus from "disqus-react";
-// Alternatively, import specific members:
-// import { DiscussionEmbed, CommentCount, CommentEmbed } from 'disqus-react';
 
 class Article extends React.Component {
   render() {

@@ -1,9 +1,5 @@
 import React from "react";
-
-// npm package
 import { Link } from "react-router-dom";
-
-// npm
 import { BrowserView, TabletView, MobileView } from "react-device-detect";
 
 function Footer() {

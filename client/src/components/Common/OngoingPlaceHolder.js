@@ -1,6 +1,4 @@
 import React from "react";
-
-// npm
 import ContentLoader from "react-content-loader";
 
 function OngoingPlaceHolder() {

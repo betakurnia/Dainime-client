@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-
-// component
 import NewSeason from "./NewSeason";
 import RecentRelease from "../../Common/RecentRelease";
 import AnimePlaceHolder from "../../Common/AnimePlaceHolder";
 import RecentReleasePlaceHolder from "../../Common/RecentReleasePlaceHolder";
 import Spinner from "../../Common/Spinner";
-
-// npm package
 import { connect } from "react-redux";
 import { getNewSeason } from "../../../actions/animeActions";
 import { getNewSeasonCount } from "../../../actions/helperActions";
