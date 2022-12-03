@@ -7,7 +7,6 @@ import Spinner from "../../Common/Spinner";
 import { connect } from "react-redux";
 import { getNewSeason } from "../../../actions/animeActions";
 import { getNewSeasonCount } from "../../../actions/helperActions";
-import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 
 class NewSeasons extends Component {

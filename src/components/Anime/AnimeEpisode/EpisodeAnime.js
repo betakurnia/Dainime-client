@@ -9,7 +9,6 @@ import EpisodeAnimePlaceHolder from "../../Common/EpisodeAnimePlaceHolder";
 import Spinner from "../../Common/Spinner";
 import { connect } from "react-redux";
 import { getEpisode } from "../../../actions/episodeAnimeActions";
-import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 import Disqus from "disqus-react";
 
@@ -49,64 +48,9 @@ class EpisodeAnime extends Component {
       title: `${this.props.match.params.title}` //this.props.title
     };
 
-    const mobile = (
+    return (
       <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-12 ">
-              <HeaderAnime episode={episode} column="col-12" />
-              <div className="mt-5"></div>
-              <RecentEpisodeMobile
-                column="col-5"
-                title={this.props.match.params.title}
-              />
-              <div className="mt-5"></div>
-              <DownloadLink
-                episode={episode}
-                column="col-12 "
-                clickNupload="CU"
-              />
-              <div className="mt-5"></div>
-              <Disqus.DiscussionEmbed
-                shortname={disqusShortname}
-                config={disqusConfig}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-
-    const tablet = (
-      <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 ">
-              <HeaderAnime episode={episode} />
-              <div className="mt-5"></div>
-              <RecentEpisode
-                column="col-md-2"
-                title={this.props.match.params.title}
-              />
-              <div className="mt-5"></div>
-              <DownloadLink
-                episode={episode}
-                column="col-md-12 "
-                clickNupload="ClickNUpload"
-              />
-              <div className="mt-5"></div>
-              <Disqus.DiscussionEmbed
-                shortname={disqusShortname}
-                config={disqusConfig}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-
-    const desktop = (
-      <div>
+        <div>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 ">
@@ -144,22 +88,6 @@ class EpisodeAnime extends Component {
           </div>
         </div>
       </div>
-    );
-
-    return (
-      <div>
-        <BrowserView>
-          {" "}
-          <div className="d-none d-lg-block ">{desktop}</div>
-          <div className="d-none d-md-block d-lg-none">
-            {loading ? <Spinner /> : tablet}
-          </div>
-          <div className="d-block d-sm-block d-md-none ">
-            {loading ? <Spinner /> : mobile}
-          </div>
-        </BrowserView>{" "}
-        <TabletView>{loading ? <Spinner /> : tablet}</TabletView>{" "}
-        <MobileView> {loading ? <Spinner /> : mobile}</MobileView>
       </div>
     );
   }

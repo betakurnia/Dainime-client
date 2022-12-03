@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { findAnime } from "../../actions/animeActions";
-import { BrowserView, TabletView, MobileView } from "react-device-detect";
-import { NavLink, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
@@ -119,107 +118,9 @@ class Navbar extends Component {
         </div>
       ));
 
-    const mobile = (
+    return (
       <div>
-        <nav className="navbar navbar-expand-lg utility_background_dark-black navbar-dark">
-          <div className="container-fluid">
-            <Link to="/">
-              <h4 className="utility_text_18px">
-                <a href="/#" className="navbar-brand text-primary-blue">
-                  <img
-                    className="img-fluid mr-2 ml-2"
-                    style={{ width: 16, height: 16 }}
-                    src="/image/helper/logo.png"
-                    alt="dainime"
-                  />
-                  Dainime
-                </a>
-              </h4>
-            </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapsibleNavbar"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="collapsibleNavbar">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <NavLink to="/" activeClassName="nav-link">
-                    <a
-                      href="/#"
-                    >
-                      Home
-                    </a>
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/anime-list" activeClassName="nav-link">
-                    <a
-                      href="/#"
-                     
-                    >
-                      Daftar Anime
-                    </a>
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/new-season" activeClassName="nav-link">
-                    <a
-                      href="/#"
-                    >
-                      Season Baru
-                    </a>
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/schedule" activeClassName="nav-link">
-                    <a
-                      href="/#"
-                    >
-                      Jadwal
-                    </a>
-                  </NavLink>
-                </li>
-              </ul>
-              <div className="d-md-block d-lg-none mt-3"></div>
-              <div ref={this.setWrapperRef}>
-                <form>
-                  {" "}
-                  <div className="input-group  utility_relative">
-                    <div className="input-group-prepend">
-                      <span
-                        className="input-group-text pink lighten-3"
-                        id="basic-text1"
-                      >
-                        <i
-                          className="fa fa-search text-white"
-                          aria-hidden="true"
-                        ></i>
-                      </span>
-                    </div>
-                    <input
-                      onClick={this.handeClickInside}
-                      onChange={this.changeHandler}
-                      className="form-control my-0 py-1"
-                      type="text"
-                      placeholder="Search Anime"
-                      aria-label="Search"
-                    />
-                  </div>
-                  {findAnimesMobile}
-                </form>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    );
-
-    const desktop = (
-      <div>
+   <div>
         <nav className="navbar navbar-expand-md utility_background_dark-black navbar-dark">
           <div className="container-fluid">
             <Link to="/">
@@ -336,14 +237,6 @@ class Navbar extends Component {
           </div>
         </nav>
       </div>
-    );
-
-    return (
-      <div>
-        <BrowserView>{desktop}</BrowserView>
-        <TabletView>{desktop}</TabletView>
-        <MobileView>{mobile}</MobileView>
-        <div className="utility_margin-top-64px"></div>
       </div>
     );
   }

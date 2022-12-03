@@ -7,7 +7,6 @@ import Spinner from "../../Common/Spinner";
 import { connect } from "react-redux";
 import { getAnimeListSort } from "../../../actions/animeActions";
 import { getAnimeListSortCount } from "../../../actions/helperActions";
-import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 
 class AllAnimeListsSort extends Component {
@@ -77,73 +76,9 @@ class AllAnimeListsSort extends Component {
 
     const loadingEpisodeAnime = this.props.anime.loading;
 
-    const mobilePotrait = (
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <AllAnimeList
-              column="col-6"
-              divided="1"
-              height="utility_height_60px"
-              animeList={animeList}
-              pageCount={pageCount}
-              alphabet={[
-                this.state.alphabet,
-                this.state.alphabet2,
-                this.state.alphabet3
-              ]}
-              sort={this.props.match.params.sort}
-            />
-          </div>
-        </div>
-      </div>
-    );
-
-    const mobileLandscape = (
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <AllAnimeList
-              column="col-sm-4"
-              divided="2"
-              height="utility_height_60px"
-              animeList={animeList}
-              pageCount={pageCount}
-              alphabet={[
-                this.state.alphabet,
-                this.state.alphabet2,
-                this.state.alphabet3
-              ]}
-              sort={this.props.match.params.sort}
-            />
-          </div>
-        </div>
-      </div>
-    );
-
-    const tablet = (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <AllAnimeList
-              column="col-md-3"
-              divided="3"
-              height="utility_height_40px"
-              animeList={animeList}
-              pageCount={pageCount}
-              alphabet={[
-                this.state.alphabetDesktop,
-                this.state.alphabetDesktop2
-              ]}
-              sort={this.props.match.params.sort}
-            />
-          </div>
-        </div>
-      </div>
-    );
-
-    const desktop = (
-      <div className="container">
+    return (
+      <div>
+   <div className="container">
         <div className="row">
           <div className="col-lg-8">
             {loadingAnime ? (
@@ -172,35 +107,6 @@ class AllAnimeListsSort extends Component {
           </div>
         </div>
       </div>
-    );
-
-    return (
-      <div>
-        <BrowserView>
-          {" "}
-          <div className="d-none d-lg-block ">
-            {desktop}
-          </div>
-          <div className="d-none d-md-block d-lg-none">
-            {loading ? <Spinner /> : tablet}
-          </div>
-          <div className="d-none d-sm-block d-md-none ">
-            {loading ? <Spinner /> : mobileLandscape}
-          </div>
-          <div className="d-block d-sm-none ">
-            {loading ? <Spinner /> : mobilePotrait}
-          </div>
-        </BrowserView>{" "}
-        <TabletView>{loading ? <Spinner /> : tablet}</TabletView>{" "}
-        <MobileView>
-          {" "}
-          <div className="d-none d-sm-block d-md-none ">
-            {loading ? <Spinner /> : mobileLandscape}
-          </div>
-          <div className="d-block d-sm-none ">
-            {loading ? <Spinner /> : mobilePotrait}
-          </div>
-        </MobileView>
       </div>
     );
   }
