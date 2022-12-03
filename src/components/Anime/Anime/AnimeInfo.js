@@ -1,52 +1,7 @@
 import React from "react";
-import dateFormat from "dateformat";
+import moment from "moment";
 
 function AnimeInfo(props) {
-  dateFormat.i18n = {
-    dayNames: [
-      "Sun",
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat",
-      "Minggu",
-      "Senin",
-      "Selasa",
-      "Rabu",
-      "Kamis",
-      "Jum'at",
-      "Sabtu"
-    ],
-    monthNames: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-      "Januari",
-      "Februari",
-      "Maret",
-      "April",
-      "Mei",
-      "Juni",
-      "Juli",
-      "Agustus",
-      "September",
-      "Oktober",
-      "November",
-      "Desember"
-    ],
-    timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
-  };
 
   const anime = Array.from(props.anime);
 
@@ -96,7 +51,7 @@ function AnimeInfo(props) {
               <h5>Ditayangkan</h5>
             </td>
             <td> : </td>
-            <td>{dateFormat(anime.aired, "	mmmm d, yyyy")}</td>
+            <td>{moment(anime.aired, "	mmmm d, yyyy")}</td>
           </tr>
           <tr>
             <td>

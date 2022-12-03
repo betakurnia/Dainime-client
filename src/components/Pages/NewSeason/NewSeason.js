@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getNewSeason } from "../../../actions/animeActions";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import dateFormat from "dateformat";
+import moment from "moment";
 import PropTypes from "prop-types";
 
 class NewSeason extends Component {
@@ -28,51 +28,6 @@ class NewSeason extends Component {
   }
 
   render() {
-    dateFormat.i18n = {
-      dayNames: [
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Minggu",
-        "Senin",
-        "Selasa",
-        "Rabu",
-        "Kamis",
-        "Jum'at",
-        "Sabtu"
-      ],
-      monthNames: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-        "Januari",
-        "Februari",
-        "Maret",
-        "April",
-        "Mei",
-        "Juni",
-        "Juli",
-        "Agustus",
-        "September",
-        "Oktober",
-        "November",
-        "Desember"
-      ],
-      timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
-    };
 
     const { pageCount } = this.props;
 
@@ -124,7 +79,7 @@ class NewSeason extends Component {
           </Link>
           <p className="text-light-gray utility_text_14px">
             {" "}
-            {dateFormat(newSeason.aired, "mmmm d, yyyy")}
+            {moment(newSeason.aired, "mmmm d, yyyy")}
           </p>
           <Link
             to={`/${newSeason.title

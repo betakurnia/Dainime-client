@@ -4,7 +4,7 @@ import { getLastRelease } from "../../../actions/episodeAnimeActions";
 import Card from '../../Anime/AnimeEpisode/Card'
 import ReactPaginate from "react-paginate";
 import PropTypes from "prop-types";
-import dateFormat from "dateformat"; 
+import moment from "moment"; 
 
 
 class HomeAnime extends Component {
@@ -25,52 +25,6 @@ class HomeAnime extends Component {
   };
 
   render() {
-    dateFormat.i18n = {
-      dayNames: [
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Minggu",
-        "Senin",
-        "Selasa",
-        "Rabu",
-        "Kamis",
-        "Jum'at",
-        "Sabtu"
-      ],
-      monthNames: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
-      timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
-    };
-
     const lastRelease = Array.from(this.props.lastRelease);
 
     const { pageCount } = this.props;

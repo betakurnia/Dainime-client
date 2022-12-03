@@ -4,7 +4,7 @@ import { getAnimeList } from "../../../actions/animeActions";
 import { getAnimeListSort } from "../../../actions/animeActions";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import dateFormat from "dateformat";
+import moment from "moment";
 import PropTypes from "prop-types";
 
 class AllAnimeList extends Component {
@@ -24,51 +24,6 @@ class AllAnimeList extends Component {
   };
 
   render() {
-    dateFormat.i18n = {
-      dayNames: [
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Minggu",
-        "Senin",
-        "Selasa",
-        "Rabu",
-        "Kamis",
-        "Jum'at",
-        "Sabtu"
-      ],
-      monthNames: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-        "Januari",
-        "Februari",
-        "Maret",
-        "April",
-        "Mei",
-        "Juni",
-        "Juli",
-        "Agustus",
-        "September",
-        "Oktober",
-        "November",
-        "Desember"
-      ],
-      timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
-    };
 
     const alphabet = this.props.alphabet[0];
     const alphabet2 = this.props.alphabet[1];
@@ -102,7 +57,7 @@ class AllAnimeList extends Component {
           </Link>
           <p className="text-light-gray utility_text_14px">
             {" "}
-            {dateFormat(animeList.aired, "mmmm d, yyyy")}
+            {moment(animeList.aired, "mmmm d, yyyy")}
           </p>
           <Link
             to={`/${animeList.title
@@ -144,8 +99,14 @@ class AllAnimeList extends Component {
       ));
     }
 
-    const reactPaginate = (
-      <ReactPaginate
+    return (
+      <div>
+        <div className="card">
+          <div className="utility_background_light-black text-white pagination-sm  ">
+            <div className="card-header ">
+              <div className="d-flex justify-content-between align-items-center">
+                <h5>Daftar Anime</h5>
+                <nav aria-label="...">{totalPage !== 1 &&       <ReactPaginate
         previousLabel={<i className="	fa fa-caret-left"></i>}
         nextLabel={<i className="	fa fa-caret-right"></i>}
         pageClassName={" page-item"}
@@ -163,17 +124,7 @@ class AllAnimeList extends Component {
         nextClassName={" page-item"}
         previousLinkClassName={" page-link"}
         nextLinkClassName={" page-link"}
-      />
-    );
-
-    return (
-      <div>
-        <div className="card">
-          <div className="utility_background_light-black text-white pagination-sm  ">
-            <div className="card-header ">
-              <div className="d-flex justify-content-between align-items-center">
-                <h5>Daftar Anime</h5>
-                <nav aria-label="...">{totalPage !== 1 && reactPaginate}</nav>
+      />}</nav>
               </div>
             </div>
           </div>

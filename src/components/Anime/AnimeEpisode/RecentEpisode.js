@@ -4,7 +4,7 @@ import { getEpisodeCount } from "../../../actions/helperActions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
-import dateFormat from "dateformat";
+import moment from "moment";
 import PropTypes from "prop-types";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -29,51 +29,6 @@ class RecentEpisode extends Component {
   }
 
   render() {
-    dateFormat.i18n = {
-      dayNames: [
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Minggu",
-        "Senin",
-        "Selasa",
-        "Rabu",
-        "Kamis",
-        "Jum'at",
-        "Sabtu"
-      ],
-      monthNames: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
-      timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
-    };
 
     const FakeComoponent = (
       <div className={this.props.column}>
@@ -228,7 +183,7 @@ class RecentEpisode extends Component {
           </Link>
           <p className="text-light-gray utility_text_14px">
             {" "}
-            {dateFormat(lastEpisode.date, "h:MM TT ")}
+            {moment(lastEpisode.date, "h:MM TT ")}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -257,7 +212,7 @@ class RecentEpisode extends Component {
           </Link>
           <p className="text-light-gray utility_text_14px">
             {" "}
-            {dateFormat(lastEpisode.date, "h:MM TT ")}
+            {moment(lastEpisode.date, "h:MM TT ")}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -286,7 +241,7 @@ class RecentEpisode extends Component {
           </Link>
           <p className="text-light-gray utility_text_14px">
             {" "}
-            {dateFormat(lastEpisode.date, "h:MM TT ")}
+            {moment(lastEpisode.date, "h:MM TT ")}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -315,7 +270,7 @@ class RecentEpisode extends Component {
           </Link>
           <p className="text-light-gray utility_text_14px">
             {" "}
-            {dateFormat(lastEpisode.date, "h:MM TT ")}
+            {moment(lastEpisode.date, "h:MM TT ")}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -344,7 +299,7 @@ class RecentEpisode extends Component {
           </Link>
           <p className="text-light-gray utility_text_14px">
             {" "}
-            {dateFormat(lastEpisode.date, "h:MM TT ")}
+            {moment(lastEpisode.date, "h:MM TT ")}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}

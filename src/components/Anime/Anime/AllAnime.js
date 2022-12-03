@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import dateFormat from "dateformat";
+import moment from "moment";
 import { connect } from "react-redux";
 import { getAllEpisode } from "../../../actions/episodeAnimeActions";
 import { Link } from "react-router-dom";
@@ -14,52 +14,6 @@ class AllAnime extends Component {
   };
 
   render() {
-    dateFormat.i18n = {
-      dayNames: [
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Minggu",
-        "Senin",
-        "Selasa",
-        "Rabu",
-        "Kamis",
-        "Jum'at",
-        "Sabtu"
-      ],
-      monthNames: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
-      timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
-    };
-
     const totalPage = Math.ceil(this.props.pageCount / 24);
 
     const allEpisode = Array.from(this.props.allEpisode);
@@ -82,7 +36,7 @@ class AllAnime extends Component {
         </Link>
         <p className="text-light-gray utility_text_14px">
           {" "}
-          {dateFormat(allEpisode.date, "dddd,h:MM TT ")}
+          {moment(allEpisode.date, "dddd,h:MM TT ")}
         </p>
         <Link
           to={`/${allEpisode.title

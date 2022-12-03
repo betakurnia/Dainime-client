@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import dateFormat from "dateformat"; 
+import moment from "moment"; 
 
 
 const Card = (props) => {
@@ -28,7 +28,7 @@ const Card = (props) => {
     </Link>
     <p className="text-light-gray utility_text_14px">
       {" "}
-      {dateFormat(date, "dddd,h:MM TT ")}
+      {moment(date, "dddd,h:MM TT ")}
     </p>
     <Link
       to={`/${title

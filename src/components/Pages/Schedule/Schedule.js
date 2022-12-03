@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import dateFormat from "dateformat";
+import moment from "moment";
 
 function Schedule(props) {
   const schedule = Array.from(props.schedule);
 
   const scheduled = schedule.map(schedule => (
     <div key={schedule._id}>
-      {dateFormat(schedule.aired, "ddd") === props.dateCheck && (
+      {moment(schedule.aired, "ddd") === props.dateCheck && (
         <div className="col-lg-12">
           <Link
             to={`/${schedule.title
@@ -29,9 +29,9 @@ function Schedule(props) {
   ));
 
   return (
-    <React.Fragment>
+    <>
       {" "}
-      <div className={props.column}>
+      <div className="col-lg-12">
         <div className="card">
           <div className="utility_background_light-black text-white pagination-sm  ">
             <div className="card-header ">
@@ -43,7 +43,7 @@ function Schedule(props) {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 
