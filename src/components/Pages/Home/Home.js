@@ -3,12 +3,11 @@ import HomeAnime from "./HomeAnime";
 import OngoingAnime from "./OngoingAnime";
 import AnimePlaceHolder from "../../Common/AnimePlaceHolder";
 import OngoingPlaceHolder from "../../Common/OngoingPlaceHolder";
-import Spinner from "../../Common/Spinner";
+
 import { connect } from "react-redux";
 import { getLastRelease } from "../../../actions/episodeAnimeActions";
 import { getOngoingAnime } from "../../../actions/animeActions";
 import { getLastReleasePageCount } from "../../../actions/helperActions";
-import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 
 class Home extends Component {
@@ -33,65 +32,9 @@ class Home extends Component {
 
     const loadingEpisodeAnime = this.props.episodeAnime.loading;
 
-    const mobilePotrait = (
+    return (
       <div>
         <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <HomeAnime
-                column="col-6"
-                divided="1"
-                height="utility_height_60px"
-                lastRelease={lastRelease}
-                pageCount={pageCount}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-
-    const mobileLandscape = (
-      <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <HomeAnime
-                column="col-sm-4"
-                divided="2"
-                height="utility_height_60px"
-                lastRelease={lastRelease}
-                pageCount={pageCount}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-
-    const tablet = (
-      <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <HomeAnime
-                column="col-md-3"
-                divided="3"
-                height="utility_height_40px"
-                lastRelease={lastRelease}
-                pageCount={pageCount}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-
-    const desktop = (
-      <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
               <div className="row">
                 <div className="col-lg-8">
                   {loadingEpisodeAnime ? (
@@ -119,37 +62,7 @@ class Home extends Component {
                   <div className="col-lg-8"></div>
                 </div>
               </div>
-            </div>
           </div>
-        </div>
-      </div>
-    );
-
-    return (
-      <div>
-        <BrowserView>
-          {" "}
-          <div className="d-none d-lg-block ">{desktop}</div>
-          <div className="d-none d-md-block d-lg-none">
-            {loadingEpisodeAnime ? <Spinner /> : tablet}
-          </div>
-          <div className="d-none d-sm-block d-md-none ">
-            {loadingEpisodeAnime ? <Spinner /> : mobileLandscape}
-          </div>
-          <div className="d-block d-sm-none ">
-            {loadingEpisodeAnime ? <Spinner /> : mobilePotrait}
-          </div>
-        </BrowserView>{" "}
-        <TabletView>{loadingEpisodeAnime ? <Spinner /> : tablet}</TabletView>{" "}
-        <MobileView>
-          {" "}
-          <div className="d-none d-sm-block d-md-none ">
-            {loadingEpisodeAnime ? <Spinner /> : mobileLandscape}
-          </div>
-          <div className="d-block d-sm-none ">
-            {loadingEpisodeAnime ? <Spinner /> : mobilePotrait}
-          </div>
-        </MobileView>
       </div>
     );
   }

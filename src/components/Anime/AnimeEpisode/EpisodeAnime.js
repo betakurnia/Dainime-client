@@ -13,8 +13,6 @@ import { BrowserView, TabletView, MobileView } from "react-device-detect";
 import PropTypes from "prop-types";
 import Disqus from "disqus-react";
 
-// const state = this.props.location.state;
-
 class EpisodeAnime extends Component {
 
   componentDidUpdate(prevProps) {

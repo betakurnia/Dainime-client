@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getLastRelease } from "../../../actions/episodeAnimeActions";
-import { Link } from "react-router-dom";
+import Card from '../../Anime/AnimeEpisode/Card'
 import ReactPaginate from "react-paginate";
-import dateFormat from "dateformat";
 import PropTypes from "prop-types";
+import dateFormat from "dateformat"; 
+
 
 class HomeAnime extends Component {
   constructor(props) {
@@ -76,45 +77,6 @@ class HomeAnime extends Component {
 
     const totalPage = Math.ceil(pageCount / 16);
 
-    const lastReleased = lastRelease.map((lastRelease, index) => (
-      <div className={this.props.column} key={lastRelease._id}>
-        <Link
-          to={`/${lastRelease.title
-            .toLowerCase()
-            .split(" ")
-            .join("-")}/episode-${lastRelease.episode}`}
-        >
-          <a
-            href="/#"
-            className=" text-light-black utility_text-decoration_underline  anime-header__title_text_18px"
-          >
-            <h4
-              className={`text-uppercase d-flex align-items-end ${this.props.height}`}
-            >
-              {lastRelease.title}
-            </h4>
-            <h5>Episode {lastRelease.episode}</h5>
-          </a>
-        </Link>
-        <p className="text-light-gray utility_text_14px">
-          {" "}
-          {dateFormat(lastRelease.date, "dddd,h:MM TT ")}
-        </p>
-        <Link
-          to={`/${lastRelease.title
-            .toLowerCase()
-            .split(" ")
-            .join("-")}/episode-${lastRelease.episode}`}
-        >
-          <img
-            src={`/image/episode-anime/${lastRelease.imageEpisode}`}
-            alt={lastRelease.imageEpisode}
-            className="img-fluid"
-          />
-        </Link>
-        {index % this.props.divided === 0 ? <div className="mt-3"></div> : null}
-      </div>
-    ));
 
     const reactPaginate = (
       <ReactPaginate
@@ -150,7 +112,13 @@ class HomeAnime extends Component {
             </div>
           </div>
           <div className="card-body">
-            <div className="row">{lastReleased}</div>
+            <div className="row">
+              {lastRelease.map(anime => (
+                <div className="col-6 col-md-4 col-lg-3">
+                <Card key={anime._id} title={anime.title} episode={anime.episode} date={anime.date} imageEpisode={anime.imageEpisode} />
+</div>
+))}
+         </div>
           </div>
         </div>
       </div>
