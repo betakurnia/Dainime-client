@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import httpClient from '../utils/httpClient'
+import httpClient from '../../utils/httpClient'
 
 class Anime extends Component {
   constructor(props) {

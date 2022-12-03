@@ -27,56 +27,9 @@ class NewSeasons extends Component {
 
     const loadingEpisodeAnime = this.props.anime.loading;
 
-    const mobilePotrait = (
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <NewSeason
-              column="col-6"
-              divided="1"
-              height="utility_height_60px"
-              newSeason={newSeason}
-              pageCount={pageCount}
-            />
-          </div>
-        </div>
-      </div>
-    );
-
-    const mobileLandscape = (
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <NewSeason
-              column="col-sm-4"
-              divided="1"
-              height="utility_height_60px"
-              newSeason={newSeason}
-              pageCount={pageCount}
-            />
-          </div>
-        </div>
-      </div>
-    );
-
-    const tablet = (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <NewSeason
-              column="col-md-3"
-              divided="3"
-              height="utility_height_40px"
-              newSeason={newSeason}
-              pageCount={pageCount}
-            />
-          </div>
-        </div>
-      </div>
-    );
-
-    const desktop = (
-      <div className="container">
+    return (
+      <div>
+          <div className="container">
         <div className="row">
           <div className="col-lg-8">
             {loadingAnime ? (
@@ -100,33 +53,6 @@ class NewSeasons extends Component {
           </div>
         </div>
       </div>
-    );
-
-    return (
-      <div>
-        <BrowserView>
-          {" "}
-          <div className="d-none d-lg-block ">{desktop}</div>
-          <div className="d-none d-md-block d-lg-none">
-            {loading ? <Spinner /> : tablet}
-          </div>
-          <div className="d-none d-sm-block d-md-none ">
-            {loading ? <Spinner /> : mobileLandscape}
-          </div>
-          <div className="d-block d-sm-none ">
-            {loading ? <Spinner /> : mobilePotrait}
-          </div>
-        </BrowserView>{" "}
-        <TabletView>{loading ? <Spinner /> : tablet}</TabletView>{" "}
-        <MobileView>
-          {" "}
-          <div className="d-none d-sm-block d-md-none ">
-            {loading ? <Spinner /> : mobileLandscape}
-          </div>
-          <div className="d-block d-sm-none ">
-            {loading ? <Spinner /> : mobilePotrait}
-          </div>
-        </MobileView>
       </div>
     );
   }

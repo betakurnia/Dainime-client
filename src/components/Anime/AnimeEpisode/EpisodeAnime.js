@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import HeaderAnime from "./HeaderAnime";
 import RecentEpisode from "./RecentEpisode";
-import RecentEpisodeMobile from "./RecentEpisodeMobile";
 import DownloadLink from "./DownloadLink";
 import RecentRelease from "../../Common/RecentRelease";
 import RecentReleasePlaceHolder from "../../Common/RecentReleasePlaceHolder";
