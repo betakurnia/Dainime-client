@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import httpClient from '../utils/httpClient'
 
 class EpisodeAnime extends Component {
   constructor(props) {
@@ -51,15 +51,15 @@ class EpisodeAnime extends Component {
       Upload720p: this.state.Upload720p
     };
 
-    axios
-      .post("http://localhost:5000/api/admin/episode-anime", newEpisodeAnime)
+    httpClient
+      .post("/api/admin/episode-anime", newEpisodeAnime)
       .then(res => {
         console.log("Add episode anime success");
         const formData = new FormData();
         formData.append("imageEpisode", this.state.imageEpisode);
-        axios
+        httpClient
           .post(
-            `http://localhost:5000/api/admin/episode-anime/${res.data._id}`,
+            `/api/admin/episode-anime/${res.data._id}`,
             formData,
             {
               headers: {
