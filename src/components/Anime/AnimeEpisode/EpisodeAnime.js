@@ -57,7 +57,7 @@ class EpisodeAnime extends Component {
               {loadingAnime ? (
                 <EpisodeAnimePlaceHolder />
               ) : (
-                <React.Fragment>
+                <>
                   <HeaderAnime episode={episode} />
                   <div className="mt-5"></div>
                   <RecentEpisode
@@ -75,7 +75,7 @@ class EpisodeAnime extends Component {
                     shortname={disqusShortname}
                     config={disqusConfig}
                   />
-                </React.Fragment>
+                </>
               )}
             </div>
             <div className="col-lg-4">

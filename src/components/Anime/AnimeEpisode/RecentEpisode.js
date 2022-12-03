@@ -166,7 +166,7 @@ class RecentEpisode extends Component {
     }
 
     const lastEpisoded = data.reverse().map(lastEpisode => (
-      <React.Fragment>
+      <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
@@ -191,11 +191,11 @@ class RecentEpisode extends Component {
             className="img-fluid utlity__z-index_1"
           />
         </div>
-      </React.Fragment>
+      </>
     ));
 
     const lastEpisoded2 = data2.reverse().map(lastEpisode => (
-      <React.Fragment>
+      <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
@@ -220,11 +220,11 @@ class RecentEpisode extends Component {
             className="img-fluid"
           />
         </div>
-      </React.Fragment>
+      </>
     ));
 
     const lastEpisoded3 = data3.reverse().map(lastEpisode => (
-      <React.Fragment>
+      <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
@@ -249,11 +249,11 @@ class RecentEpisode extends Component {
             className="img-fluid"
           />
         </div>
-      </React.Fragment>
+      </>
     ));
 
     const lastEpisoded4 = data4.reverse().map(lastEpisode => (
-      <React.Fragment>
+      <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
@@ -278,11 +278,11 @@ class RecentEpisode extends Component {
             className="img-fluid"
           />
         </div>
-      </React.Fragment>
+      </>
     ));
 
     const lastEpisoded5 = data5.reverse().map(lastEpisode => (
-      <React.Fragment>
+      <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
@@ -307,7 +307,7 @@ class RecentEpisode extends Component {
             className="img-fluid"
           />
         </div>
-      </React.Fragment>
+      </>
     ));
 
     let totalData = [];

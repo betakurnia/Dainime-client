@@ -13,7 +13,7 @@ class RecentRelease extends Component {
 
     // Looping data
     const lastReleased = lastRelease.map(lastRelease => (
-      <React.Fragment>
+      <>
         {" "}
         <a
           href="/#"
@@ -52,7 +52,7 @@ class RecentRelease extends Component {
           </div>
         </a>
         <div className="mt-3"></div>
-      </React.Fragment>
+      </>
     ));
 
     return (

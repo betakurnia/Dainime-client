@@ -4,7 +4,7 @@ function DownloadLink(props) {
   const episode = Array.from(props.episode);
 
   const episoded = episode.map(episode => (
-    <React.Fragment>
+    <>
       <tr>
         <th scope="row">360p</th>
         <td>
@@ -77,7 +77,7 @@ function DownloadLink(props) {
           )}
         </td>
       </tr>
-    </React.Fragment>
+    </>
   ));
 
   return (
