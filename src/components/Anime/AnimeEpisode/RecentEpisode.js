@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { getLastEpisode } from "../../../actions/episodeAnimeActions";
-import { getEpisodeCount } from "../../../actions/helperActions";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { Carousel } from "react-responsive-carousel";
-import moment from "moment";
-import PropTypes from "prop-types";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import React, { Component } from 'react';
+import { getLastEpisode } from '../../../actions/episodeAnimeActions';
+import { getEpisodeCount } from '../../../actions/helperActions';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 class RecentEpisode extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class RecentEpisode extends Component {
       data2: [],
       data3: [],
       data4: [],
-      data5: []
+      data5: [],
     };
   }
 
@@ -29,7 +29,6 @@ class RecentEpisode extends Component {
   }
 
   render() {
-
     const FakeComoponent = (
       <div className={this.props.column}>
         <div className="utility_visibility_hidden">
@@ -54,7 +53,7 @@ class RecentEpisode extends Component {
     );
 
     const lastEpisode = Array.from(
-      this.props.episodeAnime.lastEpisode
+      this.props.episodeAnime.lastEpisode,
     ).reverse();
 
     const dataLength = lastEpisode.length;
@@ -165,14 +164,14 @@ class RecentEpisode extends Component {
       data = lastEpisode.slice(0, dataLength);
     }
 
-    const lastEpisoded = data.reverse().map(lastEpisode => (
+    const lastEpisoded = data.reverse().map((lastEpisode) => (
       <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}/episode-${lastEpisode.episode}`}
+              .split(' ')
+              .join('-')}/episode-${lastEpisode.episode}`}
           >
             <a
               href="/#"
@@ -182,8 +181,8 @@ class RecentEpisode extends Component {
             </a>
           </Link>
           <p className="text-light-gray utility_text_14px">
-            {" "}
-            {moment(lastEpisode.date, "h:MM TT ")}
+            {' '}
+            {moment(lastEpisode.date, 'h:MM TT ')}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -194,14 +193,14 @@ class RecentEpisode extends Component {
       </>
     ));
 
-    const lastEpisoded2 = data2.reverse().map(lastEpisode => (
+    const lastEpisoded2 = data2.reverse().map((lastEpisode) => (
       <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}/episode-${lastEpisode.episode}`}
+              .split(' ')
+              .join('-')}/episode-${lastEpisode.episode}`}
           >
             <a
               href="/#"
@@ -211,8 +210,8 @@ class RecentEpisode extends Component {
             </a>
           </Link>
           <p className="text-light-gray utility_text_14px">
-            {" "}
-            {moment(lastEpisode.date, "h:MM TT ")}
+            {' '}
+            {moment(lastEpisode.date, 'h:MM TT ')}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -223,14 +222,14 @@ class RecentEpisode extends Component {
       </>
     ));
 
-    const lastEpisoded3 = data3.reverse().map(lastEpisode => (
+    const lastEpisoded3 = data3.reverse().map((lastEpisode) => (
       <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}/episode-${lastEpisode.episode}`}
+              .split(' ')
+              .join('-')}/episode-${lastEpisode.episode}`}
           >
             <a
               href="/#"
@@ -240,8 +239,8 @@ class RecentEpisode extends Component {
             </a>
           </Link>
           <p className="text-light-gray utility_text_14px">
-            {" "}
-            {moment(lastEpisode.date, "h:MM TT ")}
+            {' '}
+            {moment(lastEpisode.date, 'h:MM TT ')}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -252,14 +251,14 @@ class RecentEpisode extends Component {
       </>
     ));
 
-    const lastEpisoded4 = data4.reverse().map(lastEpisode => (
+    const lastEpisoded4 = data4.reverse().map((lastEpisode) => (
       <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}/episode-${lastEpisode.episode}`}
+              .split(' ')
+              .join('-')}/episode-${lastEpisode.episode}`}
           >
             <a
               href="/#"
@@ -269,8 +268,8 @@ class RecentEpisode extends Component {
             </a>
           </Link>
           <p className="text-light-gray utility_text_14px">
-            {" "}
-            {moment(lastEpisode.date, "h:MM TT ")}
+            {' '}
+            {moment(lastEpisode.date, 'h:MM TT ')}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -281,14 +280,14 @@ class RecentEpisode extends Component {
       </>
     ));
 
-    const lastEpisoded5 = data5.reverse().map(lastEpisode => (
+    const lastEpisoded5 = data5.reverse().map((lastEpisode) => (
       <>
         <div className={this.props.column}>
           <Link
             to={`/${lastEpisode.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}/episode-${lastEpisode.episode}`}
+              .split(' ')
+              .join('-')}/episode-${lastEpisode.episode}`}
           >
             <a
               href="/#"
@@ -298,8 +297,8 @@ class RecentEpisode extends Component {
             </a>
           </Link>
           <p className="text-light-gray utility_text_14px">
-            {" "}
-            {moment(lastEpisode.date, "h:MM TT ")}
+            {' '}
+            {moment(lastEpisode.date, 'h:MM TT ')}
           </p>
           <img
             src={`/image/episode-anime/${lastEpisode.imageEpisode}`}
@@ -321,7 +320,7 @@ class RecentEpisode extends Component {
             {FakeComponented}
             <div className="offset-1"></div>
           </div>
-        </div>
+        </div>,
       );
     }
 
@@ -333,8 +332,8 @@ class RecentEpisode extends Component {
             {lastEpisoded2}
             {FakeComponented2}
             <div className="offset-1"></div>
-          </div>{" "}
-        </div>
+          </div>{' '}
+        </div>,
       );
     }
 
@@ -346,8 +345,8 @@ class RecentEpisode extends Component {
             {lastEpisoded3}
             {FakeComponented3}
             <div className="offset-1"></div>
-          </div>{" "}
-        </div>
+          </div>{' '}
+        </div>,
       );
     }
 
@@ -359,8 +358,8 @@ class RecentEpisode extends Component {
             {lastEpisoded4}
             {FakeComponented4}
             <div className="offset-1"></div>
-          </div>{" "}
-        </div>
+          </div>{' '}
+        </div>,
       );
     }
 
@@ -372,8 +371,8 @@ class RecentEpisode extends Component {
             {lastEpisoded5}
             {FakeComponented5}
             <div className="offset-1"></div>
-          </div>{" "}
-        </div>
+          </div>{' '}
+        </div>,
       );
     }
 
@@ -409,15 +408,15 @@ RecentEpisode.propTypes = {
   episodeAnime: PropTypes.object.isRequired,
   helper: PropTypes.object.isRequired,
   getLastEpisode: PropTypes.func.isRequired,
-  getEpisodeCount: PropTypes.func.isRequired
+  getEpisodeCount: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   episodeAnime: state.episodeAnime,
-  helper: state.helper
+  helper: state.helper,
 });
 
 export default connect(mapStateToProps, {
   getLastEpisode,
-  getEpisodeCount
+  getEpisodeCount,
 })(RecentEpisode);

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getLastRelease2 } from "../../actions/episodeAnimeActions";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getLastRelease2 } from '../../actions/episodeAnimeActions';
+import { Link } from 'react-router-dom';
 
 class RecentRelease extends Component {
   componentDidMount() {
@@ -12,9 +12,9 @@ class RecentRelease extends Component {
     const lastRelease = Array.from(this.props.episodeAnime.lastReleased);
 
     // Looping data
-    const lastReleased = lastRelease.map(lastRelease => (
+    const lastReleased = lastRelease.map((lastRelease) => (
       <>
-        {" "}
+        {' '}
         <a
           href="/#"
           className="text-light-black utility_text-decoration_underline "
@@ -24,10 +24,10 @@ class RecentRelease extends Component {
               <Link
                 to={`/${lastRelease.title
                   .toLowerCase()
-                  .split(" ")
-                  .join("-")}/episode-${lastRelease.episode}`}
+                  .split(' ')
+                  .join('-')}/episode-${lastRelease.episode}`}
               >
-                {" "}
+                {' '}
                 <img
                   className="img-fluid utility_height_125px"
                   src={`/image/episode-anime/${lastRelease.imageEpisode}`}
@@ -40,8 +40,8 @@ class RecentRelease extends Component {
               <Link
                 to={`/${lastRelease.title
                   .toLowerCase()
-                  .split(" ")
-                  .join("-")}/episode-${lastRelease.episode}`}
+                  .split(' ')
+                  .join('-')}/episode-${lastRelease.episode}`}
               >
                 <div className="text-light-black utility_text-decoration_underline  anime-header__title_text_18px">
                   <h5>{lastRelease.title}</h5>
@@ -70,8 +70,8 @@ class RecentRelease extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  episodeAnime: state.episodeAnime
+const mapStateToProps = (state) => ({
+  episodeAnime: state.episodeAnime,
 });
 
 export default connect(mapStateToProps, { getLastRelease2 })(RecentRelease);

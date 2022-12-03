@@ -1,7 +1,7 @@
-import { GET_PAGE_COUNT } from "../actions/types";
+import { GET_PAGE_COUNT } from '../actions/types';
 
 const initialState = {
-  pageCount: {}
+  pageCount: {},
 };
 
 export default function(state = initialState, action) {
@@ -9,7 +9,7 @@ export default function(state = initialState, action) {
     case GET_PAGE_COUNT:
       return {
         ...state,
-        pageCount: action.payload
+        pageCount: action.payload,
       };
     default:
       return state;

@@ -1,16 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function OngoingAnime(props) {
   const ongoingAnime = Array.from(props.ongoingAnime);
 
-  const ongoingAnimed = ongoingAnime.map(ongoingAnime => (
+  const ongoingAnimed = ongoingAnime.map((ongoingAnime) => (
     <div className="mt-2" key={ongoingAnime._id}>
       <Link
         to={`/${ongoingAnime.title
           .toLowerCase()
-          .split(" ")
-          .join("-")}`}
+          .split(' ')
+          .join('-')}`}
       >
         <a
           href="/#"
@@ -26,7 +26,7 @@ function OngoingAnime(props) {
 
   return (
     <div>
-      {" "}
+      {' '}
       <div className="card">
         <div className="utility_background_light-black text-white  ">
           <div className="card-header ">

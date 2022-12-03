@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class HeaderAnime extends Component {
   constructor(props) {
@@ -9,16 +9,16 @@ class HeaderAnime extends Component {
 
   shareLinkFB() {
     window.open(
-      "https://www.facebook.com/sharer/sharer.php?u=" + window.location.href,
-      "facebook-share-dialog",
-      "width=800,height=600"
+      'https://www.facebook.com/sharer/sharer.php?u=' + window.location.href,
+      'facebook-share-dialog',
+      'width=800,height=600',
     );
   }
 
   render() {
     const episode = Array.from(this.props.episode);
 
-    const episoded = episode.map(episode => (
+    const episoded = episode.map((episode) => (
       <div className="utility_background_white shadow-lg py-3 px-3">
         <div className="row">
           <div className="col-12">
@@ -28,20 +28,20 @@ class HeaderAnime extends Component {
                   <Link
                     to={`/${episode.title
                       .toLowerCase()
-                      .split(" ")
-                      .join("-")}`}
+                      .split(' ')
+                      .join('-')}`}
                   >
                     <a href="/#" className="text-blue text-uppercase">
                       <h4 className="utility_text-decoration_underline">
                         {episode.title}
-                      </h4>{" "}
+                      </h4>{' '}
                     </a>
                   </Link>
                 </div>
                 <div className="col-6">
                   <h4 className="text-light-black utility_text_18px text-right">
                     Episode - {episode.episode}
-                  </h4>{" "}
+                  </h4>{' '}
                 </div>
               </div>
             </div>

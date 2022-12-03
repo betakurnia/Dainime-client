@@ -1,19 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import moment from "moment";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 function Schedule(props) {
   const schedule = Array.from(props.schedule);
 
-  const scheduled = schedule.map(schedule => (
+  const scheduled = schedule.map((schedule) => (
     <div key={schedule._id}>
-      {moment(schedule.aired, "ddd") === props.dateCheck && (
+      {moment(schedule.aired, 'ddd') === props.dateCheck && (
         <div className="col-lg-12">
           <Link
             to={`/${schedule.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}`}
+              .split(' ')
+              .join('-')}`}
           >
             <a
               href="/#"
@@ -30,7 +30,7 @@ function Schedule(props) {
 
   return (
     <>
-      {" "}
+      {' '}
       <div className="col-lg-12">
         <div className="card">
           <div className="utility_background_light-black text-white pagination-sm  ">

@@ -6,8 +6,8 @@ import {
   GET_ONGOING_ANIME,
   FIND_ANIME,
   ANIME_LOADING,
-  ANIME_LOADING_FALSE
-} from "../actions/types";
+  ANIME_LOADING_FALSE,
+} from '../actions/types';
 
 const initialState = {
   anime: {},
@@ -16,7 +16,7 @@ const initialState = {
   newSeason: {},
   schedule: {},
   findAnime: {},
-  loading: false
+  loading: false,
 };
 
 export default function(state = initialState, action) {
@@ -24,47 +24,47 @@ export default function(state = initialState, action) {
     case ANIME_LOADING:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     case GET_ANIME:
       return {
         ...state,
         anime: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_ONGOING_ANIME:
       return {
         ...state,
         ongoingAnime: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_NEW_SEASON:
       return {
         ...state,
         newSeason: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_ANIME_LIST:
       return {
         ...state,
         animeList: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_SCHEDULE:
       return {
         ...state,
         schedule: action.payload,
-        loading: false
+        loading: false,
       };
     case FIND_ANIME:
       return {
         ...state,
-        findAnime: action.payload
+        findAnime: action.payload,
       };
     case ANIME_LOADING_FALSE:
       return {
         ...state,
-        loading: false
+        loading: false,
       };
     default:
       return state;

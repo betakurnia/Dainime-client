@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import NewSeason from "./NewSeason";
-import RecentRelease from "../../Common/RecentRelease";
-import AnimePlaceHolder from "../../Common/AnimePlaceHolder";
-import RecentReleasePlaceHolder from "../../Common/RecentReleasePlaceHolder";
-import Spinner from "../../Common/Spinner";
-import { connect } from "react-redux";
-import { getNewSeason } from "../../../actions/animeActions";
-import { getNewSeasonCount } from "../../../actions/helperActions";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import NewSeason from './NewSeason';
+import RecentRelease from '../../Common/RecentRelease';
+import AnimePlaceHolder from '../../Common/AnimePlaceHolder';
+import RecentReleasePlaceHolder from '../../Common/RecentReleasePlaceHolder';
+import Spinner from '../../Common/Spinner';
+import { connect } from 'react-redux';
+import { getNewSeason } from '../../../actions/animeActions';
+import { getNewSeasonCount } from '../../../actions/helperActions';
+import PropTypes from 'prop-types';
 
 class NewSeasons extends Component {
   componentDidMount() {
@@ -29,30 +29,30 @@ class NewSeasons extends Component {
 
     return (
       <div>
-          <div className="container">
-        <div className="row">
-          <div className="col-lg-8">
-            {loadingAnime ? (
-              <AnimePlaceHolder />
-            ) : (
-              <NewSeason
-                column="col-lg-3"
-                divided="3"
-                height="utility_height_40px"
-                newSeason={newSeason}
-                pageCount={pageCount}
-              />
-            )}
-          </div>
-          <div className="col-lg-4">
-            {loadingEpisodeAnime ? (
-              <RecentReleasePlaceHolder />
-            ) : (
-              <RecentRelease />
-            )}
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8">
+              {loadingAnime ? (
+                <AnimePlaceHolder />
+              ) : (
+                <NewSeason
+                  column="col-lg-3"
+                  divided="3"
+                  height="utility_height_40px"
+                  newSeason={newSeason}
+                  pageCount={pageCount}
+                />
+              )}
+            </div>
+            <div className="col-lg-4">
+              {loadingEpisodeAnime ? (
+                <RecentReleasePlaceHolder />
+              ) : (
+                <RecentRelease />
+              )}
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }
@@ -63,15 +63,15 @@ NewSeasons.propTypes = {
   episodeAnime: PropTypes.object.isRequired,
   helper: PropTypes.object.isRequired,
   getNewSeason: PropTypes.func.isRequired,
-  getNewSeasonCount: PropTypes.func.isRequired
+  getNewSeasonCount: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   anime: state.anime,
   episodeAnime: state.episodeAnime,
-  helper: state.helper
+  helper: state.helper,
 });
 
 export default connect(mapStateToProps, { getNewSeason, getNewSeasonCount })(
-  NewSeasons
+  NewSeasons,
 );

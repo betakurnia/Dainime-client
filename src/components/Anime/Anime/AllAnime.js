@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import moment from "moment";
-import { connect } from "react-redux";
-import { getAllEpisode } from "../../../actions/episodeAnimeActions";
-import { Link } from "react-router-dom";
-import ReactPaginate from "react-paginate";
+import React, { Component } from 'react';
+import moment from 'moment';
+import { connect } from 'react-redux';
+import { getAllEpisode } from '../../../actions/episodeAnimeActions';
+import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
 class AllAnime extends Component {
-  handlePageClick = data => {
+  handlePageClick = (data) => {
     let selected = data.selected;
     let page = Math.ceil(selected * 24);
 
@@ -23,8 +23,8 @@ class AllAnime extends Component {
         <Link
           to={`/${allEpisode.title
             .toLowerCase()
-            .split(" ")
-            .join("-")}/episode-${allEpisode.episode}`}
+            .split(' ')
+            .join('-')}/episode-${allEpisode.episode}`}
         >
           <a
             href="/#"
@@ -35,14 +35,14 @@ class AllAnime extends Component {
           </a>
         </Link>
         <p className="text-light-gray utility_text_14px">
-          {" "}
-          {moment(allEpisode.date, "dddd,h:MM TT ")}
+          {' '}
+          {moment(allEpisode.date, 'dddd,h:MM TT ')}
         </p>
         <Link
           to={`/${allEpisode.title
             .toLowerCase()
-            .split(" ")
-            .join("-")}/episode-${allEpisode.episode}`}
+            .split(' ')
+            .join('-')}/episode-${allEpisode.episode}`}
         >
           <img
             src={`/image/episode-anime/${allEpisode.imageEpisode}`}
@@ -58,21 +58,21 @@ class AllAnime extends Component {
       <ReactPaginate
         previousLabel={<i className="	fa fa-caret-left"></i>}
         nextLabel={<i className="	fa fa-caret-right"></i>}
-        pageClassName={" page-item"}
+        pageClassName={' page-item'}
         pageCount={totalPage}
         marginPagesDisplayed={0}
         pageRangeDisplayed={4}
-        pageLinkClassName={" page-link"}
+        pageLinkClassName={' page-link'}
         onPageChange={this.handlePageClick}
-        containerClassName={"pagination"}
-        breakLabel={"..."}
-        breakClassName={"page-item"}
-        breakLinkClassName={"page-link"}
-        activeClassName={"active"}
-        previousClassName={" page-item"}
-        nextClassName={" page-item"}
-        previousLinkClassName={" page-link"}
-        nextLinkClassName={" page-link"}
+        containerClassName={'pagination'}
+        breakLabel={'...'}
+        breakClassName={'page-item'}
+        breakLinkClassName={'page-link'}
+        activeClassName={'active'}
+        previousClassName={' page-item'}
+        nextClassName={' page-item'}
+        previousLinkClassName={' page-link'}
+        nextLinkClassName={' page-link'}
       />
     );
 

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getAnimeList } from "../../../actions/animeActions";
-import { getAnimeListSort } from "../../../actions/animeActions";
-import { Link } from "react-router-dom";
-import ReactPaginate from "react-paginate";
-import moment from "moment";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getAnimeList } from '../../../actions/animeActions';
+import { getAnimeListSort } from '../../../actions/animeActions';
+import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class AllAnimeList extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class AllAnimeList extends Component {
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  handlePageClick = data => {
+  handlePageClick = (data) => {
     let selected = data.selected;
     let page = Math.ceil(selected * 16);
     if (this.props.sort) {
@@ -24,7 +24,6 @@ class AllAnimeList extends Component {
   };
 
   render() {
-
     const alphabet = this.props.alphabet[0];
     const alphabet2 = this.props.alphabet[1];
     const alphabet3 = this.props.alphabet[2];
@@ -41,8 +40,8 @@ class AllAnimeList extends Component {
           <Link
             to={`/${animeList.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}`}
+              .split(' ')
+              .join('-')}`}
           >
             <a
               href="/#"
@@ -51,19 +50,19 @@ class AllAnimeList extends Component {
               <h4
                 className={`text-uppercase ${this.props.height} d-flex align-items-end`}
               >
-                {animeList.title + "          "}
+                {animeList.title + '          '}
               </h4>
             </a>
           </Link>
           <p className="text-light-gray utility_text_14px">
-            {" "}
-            {moment(animeList.aired, "mmmm d, yyyy")}
+            {' '}
+            {moment(animeList.aired, 'mmmm d, yyyy')}
           </p>
           <Link
             to={`/${animeList.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}`}
+              .split(' ')
+              .join('-')}`}
           >
             <img
               className="img-fluid"
@@ -106,25 +105,29 @@ class AllAnimeList extends Component {
             <div className="card-header ">
               <div className="d-flex justify-content-between align-items-center">
                 <h5>Daftar Anime</h5>
-                <nav aria-label="...">{totalPage !== 1 &&       <ReactPaginate
-        previousLabel={<i className="	fa fa-caret-left"></i>}
-        nextLabel={<i className="	fa fa-caret-right"></i>}
-        pageClassName={" page-item"}
-        pageCount={totalPage}
-        marginPagesDisplayed={0}
-        pageRangeDisplayed={4}
-        pageLinkClassName={" page-link"}
-        onPageChange={this.handlePageClick}
-        containerClassName={"pagination"}
-        breakLabel={"..."}
-        breakClassName={"page-item"}
-        breakLinkClassName={"page-link"}
-        activeClassName={"active"}
-        previousClassName={" page-item"}
-        nextClassName={" page-item"}
-        previousLinkClassName={" page-link"}
-        nextLinkClassName={" page-link"}
-      />}</nav>
+                <nav aria-label="...">
+                  {totalPage !== 1 && (
+                    <ReactPaginate
+                      previousLabel={<i className="	fa fa-caret-left"></i>}
+                      nextLabel={<i className="	fa fa-caret-right"></i>}
+                      pageClassName={' page-item'}
+                      pageCount={totalPage}
+                      marginPagesDisplayed={0}
+                      pageRangeDisplayed={4}
+                      pageLinkClassName={' page-link'}
+                      onPageChange={this.handlePageClick}
+                      containerClassName={'pagination'}
+                      breakLabel={'...'}
+                      breakClassName={'page-item'}
+                      breakLinkClassName={'page-link'}
+                      activeClassName={'active'}
+                      previousClassName={' page-item'}
+                      nextClassName={' page-item'}
+                      previousLinkClassName={' page-link'}
+                      nextLinkClassName={' page-link'}
+                    />
+                  )}
+                </nav>
               </div>
             </div>
           </div>
@@ -157,7 +160,7 @@ class AllAnimeList extends Component {
 }
 
 AllAnimeList.propTypes = {
-  getAnimeList: PropTypes.func.isRequired
+  getAnimeList: PropTypes.func.isRequired,
 };
 
 export default connect(null, { getAnimeList, getAnimeListSort })(AllAnimeList);

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getNewSeason } from "../../../actions/animeActions";
-import { Link } from "react-router-dom";
-import ReactPaginate from "react-paginate";
-import moment from "moment";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getNewSeason } from '../../../actions/animeActions';
+import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class NewSeason extends Component {
   constructor(props) {
@@ -12,11 +12,11 @@ class NewSeason extends Component {
 
     this.state = {
       data: [],
-      page: 0
+      page: 0,
     };
   }
 
-  handlePageClick = data => {
+  handlePageClick = (data) => {
     let selected = data.selected;
     let page = Math.ceil(selected * 16);
 
@@ -24,11 +24,10 @@ class NewSeason extends Component {
   };
 
   componentDidMount() {
-    document.title = "Dainime | Season baru di Dainime";
+    document.title = 'Dainime | Season baru di Dainime';
   }
 
   render() {
-
     const { pageCount } = this.props;
 
     const newSeason = Array.from(this.props.newSeason);
@@ -39,21 +38,21 @@ class NewSeason extends Component {
       <ReactPaginate
         previousLabel={<i className="	fa fa-caret-left"></i>}
         nextLabel={<i className="	fa fa-caret-right"></i>}
-        pageClassName={" page-item"}
+        pageClassName={' page-item'}
         pageCount={totalPage}
         marginPagesDisplayed={0}
         pageRangeDisplayed={4}
-        pageLinkClassName={" page-link"}
+        pageLinkClassName={' page-link'}
         onPageChange={this.handlePageClick}
-        containerClassName={"pagination"}
-        breakLabel={"..."}
-        breakClassName={"page-item"}
-        breakLinkClassName={"page-link"}
-        activeClassName={"active"}
-        previousClassName={" page-item"}
-        nextClassName={" page-item"}
-        previousLinkClassName={" page-link"}
-        nextLinkClassName={" page-link"}
+        containerClassName={'pagination'}
+        breakLabel={'...'}
+        breakClassName={'page-item'}
+        breakLinkClassName={'page-link'}
+        activeClassName={'active'}
+        previousClassName={' page-item'}
+        nextClassName={' page-item'}
+        previousLinkClassName={' page-link'}
+        nextLinkClassName={' page-link'}
       />
     );
 
@@ -63,8 +62,8 @@ class NewSeason extends Component {
           <Link
             to={`/${newSeason.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}`}
+              .split(' ')
+              .join('-')}`}
           >
             <a
               href="/#"
@@ -73,19 +72,19 @@ class NewSeason extends Component {
               <h4
                 className={`text-uppercase ${this.props.height} d-flex align-items-end`}
               >
-                {newSeason.title + "          "}
+                {newSeason.title + '          '}
               </h4>
             </a>
           </Link>
           <p className="text-light-gray utility_text_14px">
-            {" "}
-            {moment(newSeason.aired, "mmmm d, yyyy")}
+            {' '}
+            {moment(newSeason.aired, 'mmmm d, yyyy')}
           </p>
           <Link
             to={`/${newSeason.title
               .toLowerCase()
-              .split(" ")
-              .join("-")}`}
+              .split(' ')
+              .join('-')}`}
           >
             <img
               className="img-fluid"
@@ -120,7 +119,7 @@ class NewSeason extends Component {
 }
 
 NewSeason.propTypes = {
-  getNewSeason: PropTypes.func.isRequired
+  getNewSeason: PropTypes.func.isRequired,
 };
 
 export default connect(null, { getNewSeason })(NewSeason);

@@ -1,25 +1,22 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { Provider } from "react-redux";
-import store from "./store";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import "./App.css";
-
-import Navbar from "./components/Layout/Navbar";
-import Footer from "./components/Layout/Footer";
-import Home from "./components/Pages/Home/Home";
-import AllAnimeLists from "./components/Pages/AllAnimeList/AllAnimeLists";
-import AllAnimeListsSort from "./components/Pages/AllAnimeList/AllAnimeListsSort";
-import NewSeasons from "./components/Pages/NewSeason/NewSeasons";
-import Schedules from "./components/Pages/Schedule/Schedules";
-import Contact from "./components/Pages/Footer/Contact";
-import About from "./components/Pages/Footer/About";
-import Anime from "./components/Anime/Anime/Anime";
-import EpisodeAnime from "./components/Anime/AnimeEpisode/EpisodeAnime";
-import AnimeAdmin from "./components/Admin/Anime";
-import EpisodeAnimeADmin from "./components/Admin/EpisodeAnime";
+import { Provider } from 'react-redux';
+import store from './store';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './App.css';
+import Navbar from './components/Layout/Navbar';
+import Footer from './components/Layout/Footer';
+import Home from './components/Pages/Home/Home';
+import AllAnimeLists from './components/Pages/AllAnimeList/AllAnimeLists';
+import AllAnimeListsSort from './components/Pages/AllAnimeList/AllAnimeListsSort';
+import NewSeasons from './components/Pages/NewSeason/NewSeasons';
+import Schedules from './components/Pages/Schedule/Schedules';
+import Contact from './components/Pages/Footer/Contact';
+import About from './components/Pages/Footer/About';
+import Anime from './components/Anime/Anime/Anime';
+import EpisodeAnime from './components/Anime/AnimeEpisode/EpisodeAnime';
+import AnimeAdmin from './components/Admin/Anime';
+import EpisodeAnimeADmin from './components/Admin/EpisodeAnime';
 
 class App extends Component {
   render() {

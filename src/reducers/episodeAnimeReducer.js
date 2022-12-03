@@ -5,8 +5,8 @@ import {
   GET_LAST_EPISODE,
   GET_ALL_EPISODE,
   EPISODE_LOADING,
-  ANIME_LOADING_FALSE
-} from "../actions/types";
+  ANIME_LOADING_FALSE,
+} from '../actions/types';
 
 const initialState = {
   episode: {},
@@ -14,7 +14,7 @@ const initialState = {
   lastReleased: {},
   lastEpisode: {},
   allEpisode: {},
-  loading: false
+  loading: false,
 };
 
 export default function(state = initialState, action) {
@@ -22,41 +22,41 @@ export default function(state = initialState, action) {
     case EPISODE_LOADING:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     case GET_EPISODE:
       return {
         ...state,
         episode: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_LAST_RELEASE:
       return {
         ...state,
         lastRelease: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_LAST_RELEASED:
       return {
         ...state,
         lastReleased: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_LAST_EPISODE:
       return {
         ...state,
-        lastEpisode: action.payload
+        lastEpisode: action.payload,
       };
     case GET_ALL_EPISODE:
       return {
         ...state,
         allEpisode: action.payload,
-        loading: false
+        loading: false,
       };
     case ANIME_LOADING_FALSE:
       return {
         ...state,
-        loading: false
+        loading: false,
       };
     default:
       return state;

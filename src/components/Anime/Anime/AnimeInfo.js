@@ -1,11 +1,10 @@
-import React from "react";
-import moment from "moment";
+import React from 'react';
+import moment from 'moment';
 
 function AnimeInfo(props) {
-
   const anime = Array.from(props.anime);
 
-  const animed = anime.map(anime => (
+  const animed = anime.map((anime) => (
     <div className="row">
       <div className={props.column}>
         <img
@@ -51,7 +50,7 @@ function AnimeInfo(props) {
               <h5>Ditayangkan</h5>
             </td>
             <td> : </td>
-            <td>{moment(anime.aired, "	mmmm d, yyyy")}</td>
+            <td>{moment(anime.aired, '	mmmm d, yyyy')}</td>
           </tr>
           <tr>
             <td>
@@ -72,7 +71,7 @@ function AnimeInfo(props) {
               <h5>Genres</h5>
             </td>
             <td> : </td>
-            <td> {anime.genre.join(",")}</td>
+            <td> {anime.genre.join(',')}</td>
           </tr>
           <tr>
             <td>

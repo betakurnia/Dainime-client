@@ -34,7 +34,14 @@
     "eject": "react-scripts eject",
     "build-css": "node-sass --include-path scss scss/main.scss src/App.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "client": "concurrently \"npm run start\" \"npm run watch-css\""
+    "client": "concurrently \"npm run start\" \"npm run watch-css\"",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
+  },
+  "lint-staged": {
+    "./src/**/*.{js,ts,tsx,jsx}": [
+      "prettier --write"
+    ],
+    "./src/**/*.{css,scss,md}": "prettier --write"
   },
   "eslintConfig": {
     "extends": "react-app"
