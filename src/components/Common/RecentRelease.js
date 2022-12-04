@@ -14,19 +14,19 @@ class RecentRelease extends Component {
     return (
       <div>
         <div className="card">
-            <div className="card-header utility_background_light-black text-white  ">
-              <h2 className="h5 mb-0">Rilis Terakhir</h2>
-            </div>
+          <div className="card-header utility_background_light-black text-white  ">
+            <h2 className="h5 mb-0">Rilis Terakhir</h2>
           </div>
-          <div className="card-body bg-white">
-            {lastRelease.map((anime) => (
-              <AnimeCard
-                key={anime._id}
-                title={anime.title}
-                episode={anime.episode}
-                imageEpisode={anime.imageEpisode}
-              />
-            ))}
+        </div>
+        <div className="card-body bg-white">
+          {lastRelease.map((anime) => (
+            <AnimeCard
+              key={anime._id}
+              title={anime.title}
+              episode={anime.episode}
+              imageEpisode={anime.imageEpisode}
+            />
+          ))}
         </div>
       </div>
     );

@@ -20,32 +20,32 @@ class AllAnime extends Component {
     return (
       <div>
         <div className="card">
-            <div className="card-header utility_background_light-black text-white pagination-sm">
-              <div className="d-flex justify-content-between align-items-center">
-                <h5>Anime</h5>
-                <nav>
-                  {totalPage !== 1 && (
-                    <ReactPaginate
-                      totalPage={totalPage}
-                      onPageChange={this.handlePageClick}
-                    />
-                  )}
-                </nav>
-              </div>
+          <div className="card-header utility_background_light-black text-white pagination-sm">
+            <div className="d-flex justify-content-between align-items-center">
+              <h5>Anime</h5>
+              <nav>
+                {totalPage !== 1 && (
+                  <ReactPaginate
+                    totalPage={totalPage}
+                    onPageChange={this.handlePageClick}
+                  />
+                )}
+              </nav>
             </div>
           </div>
-          <div className="card-body">
-            <div className="row">
-              {allEpisode.map((anime) => (
-                <div key={anime._id} className="col-6 col-md-4 col-lg-3 mt-3">
-                  <EpisodeCard
-                    title={anime.title}
-                    episode={anime.episode}
-                    date={anime.date}
-                    imageEpisode={anime.imageEpisode}
-                  />
-                </div>
-              ))}
+        </div>
+        <div className="card-body">
+          <div className="row">
+            {allEpisode.map((anime) => (
+              <div key={anime._id} className="col-6 col-md-4 col-lg-3 mt-3">
+                <EpisodeCard
+                  title={anime.title}
+                  episode={anime.episode}
+                  date={anime.date}
+                  imageEpisode={anime.imageEpisode}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

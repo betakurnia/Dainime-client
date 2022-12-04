@@ -12,17 +12,37 @@ class Schedules extends Component {
   render() {
     const { schedule } = this.props.anime;
 
+    const schedules = [
+      {
+        date: 'Senin',
+      },
+      {
+        date: 'Selasa',
+      },
+      {
+        date: 'Rabu',
+      },
+      {
+        date: 'Kamis',
+      },
+      {
+        date: 'Jumat',
+      },
+      {
+        date: 'Sabtu',
+      },
+      {
+        date: 'Minggu',
+      },
+    ];
+
     return (
       <div>
         <div className="container">
           <div className="row">
-            <ScheduleCard date="Senin" schedule={schedule} />
-            <ScheduleCard date="Selasa" schedule={schedule} />
-            <ScheduleCard date="Rabu" schedule={schedule} />
-            <ScheduleCard date="Kamis" schedule={schedule} />
-            <ScheduleCard date="Jum'at" schedule={schedule} />
-            <ScheduleCard date="Sabtu" schedule={schedule} />
-            <ScheduleCard date="Minggu" schedule={schedule} />
+            {schedules.map((anime) => (
+              <ScheduleCard date={anime.date} schedule={schedule} />
+            ))}
           </div>
         </div>
       </div>
