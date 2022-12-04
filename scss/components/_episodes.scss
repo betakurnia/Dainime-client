@@ -3,9 +3,9 @@
 }
 
 .table .thead-dark th {
-  color: #fff;
+  color: $color-white;
   background-color: $color-light-black;
-  border-color: #454d55;
+  border-color: $color-dark-black;
 }
 
 .slide-box {

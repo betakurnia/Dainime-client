@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import httpClient from '../../utils/httpClient';
 
 class Anime extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: "",
-      synopsis: "",
-      type: "",
-      status: "",
-      aired: "",
-      genre: "",
-      episodes: "",
-      premiered: "",
-      studio: "",
-      source: "",
-      duration: "",
-      imageAnime: ""
+      title: '',
+      synopsis: '',
+      type: '',
+      status: '',
+      aired: '',
+      genre: '',
+      episodes: '',
+      premiered: '',
+      studio: '',
+      source: '',
+      duration: '',
+      imageAnime: '',
     };
 
     this.onChange = this.onChange.bind(this);
@@ -47,54 +47,50 @@ class Anime extends Component {
       premiered: this.state.premiered,
       studio: this.state.studio,
       source: this.state.source,
-      duration: this.state.duration
+      duration: this.state.duration,
     };
 
-    axios
-      .post("http://localhost:5000/api/admin/anime", newAnime)
-      .then(res => {
-        console.log("Add anime success");
+    httpClient
+      .post('/api/admin/anime', newAnime)
+      .then((res) => {
+        console.log('Add anime success');
         const formData = new FormData();
-        formData.append("imageAnime", this.state.imageAnime);
-        axios
-          .post(
-            `http://localhost:5000/api/admin/anime/${res.data._id}`,
-            formData,
-            {
-              headers: {
-                "content-type": "multipart/form-data"
-              }
-            }
-          )
-          .then(res => console.log("Add file success"))
-          .catch(err => console.log(err.response.data));
+        formData.append('imageAnime', this.state.imageAnime);
+        httpClient
+          .post(`/api/admin/anime/${res.data._id}`, formData, {
+            headers: {
+              'content-type': 'multipart/form-data',
+            },
+          })
+          .then((res) => console.log('Add file success'))
+          .catch((err) => console.log(err.response.data));
       })
-      .catch(err => console.log(err.response.data));
+      .catch((err) => console.log(err.response.data));
   }
 
   render() {
     const optionsType = [
-      { label: "* Select type", value: 0 },
-      { label: "TV", value: "TV" },
-      { label: "Movie", value: "Movie " },
-      { label: "OVA ", value: "OVA" },
-      { label: "Special", value: "Special" },
-      { label: "Music", value: "Music" }
+      { label: '* Select type', value: 0 },
+      { label: 'TV', value: 'TV' },
+      { label: 'Movie', value: 'Movie ' },
+      { label: 'OVA ', value: 'OVA' },
+      { label: 'Special', value: 'Special' },
+      { label: 'Music', value: 'Music' },
     ];
 
     const optionStatus = [
-      { label: "* Select status", value: 0 },
-      { label: "Airing", value: "Airing" },
-      { label: "Finished", value: "Finished " }
+      { label: '* Select status', value: 0 },
+      { label: 'Airing', value: 'Airing' },
+      { label: 'Finished', value: 'Finished ' },
     ];
 
-    const selectOptionsType = optionsType.map(option => (
+    const selectOptionsType = optionsType.map((option) => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
     ));
 
-    const selectOptionsStatus = optionStatus.map(option => (
+    const selectOptionsStatus = optionStatus.map((option) => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>

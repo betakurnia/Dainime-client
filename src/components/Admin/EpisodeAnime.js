@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import httpClient from '../../utils/httpClient';
 
 class EpisodeAnime extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      anime: "",
-      episode: "",
-      FileUpload360p: "",
-      FileUpload480p: "",
-      FileUpload720p: "",
-      ClickNUpload360p: "",
-      ClickNUpload480p: "",
-      ClickNUpload720p: "",
-      Upload360p: "",
-      Upload480p: "",
-      Upload720p: "",
-      imageEpisode: ""
+      anime: '',
+      episode: '',
+      FileUpload360p: '',
+      FileUpload480p: '',
+      FileUpload720p: '',
+      ClickNUpload360p: '',
+      ClickNUpload480p: '',
+      ClickNUpload720p: '',
+      Upload360p: '',
+      Upload480p: '',
+      Upload720p: '',
+      imageEpisode: '',
     };
     this.onChange = this.onChange.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
@@ -48,29 +48,25 @@ class EpisodeAnime extends Component {
       ClickNUpload720p: this.state.ClickNUpload720p,
       Upload360p: this.state.Upload360p,
       Upload480p: this.state.Upload480p,
-      Upload720p: this.state.Upload720p
+      Upload720p: this.state.Upload720p,
     };
 
-    axios
-      .post("http://localhost:5000/api/admin/episode-anime", newEpisodeAnime)
-      .then(res => {
-        console.log("Add episode anime success");
+    httpClient
+      .post('/api/admin/episode-anime', newEpisodeAnime)
+      .then((res) => {
+        console.log('Add episode anime success');
         const formData = new FormData();
-        formData.append("imageEpisode", this.state.imageEpisode);
-        axios
-          .post(
-            `http://localhost:5000/api/admin/episode-anime/${res.data._id}`,
-            formData,
-            {
-              headers: {
-                "content-type": "multipart/form-data"
-              }
-            }
-          )
-          .then(res => console.log("Add file success"))
-          .catch(err => console.log(err.response.data));
+        formData.append('imageEpisode', this.state.imageEpisode);
+        httpClient
+          .post(`/api/admin/episode-anime/${res.data._id}`, formData, {
+            headers: {
+              'content-type': 'multipart/form-data',
+            },
+          })
+          .then((res) => console.log('Add file success'))
+          .catch((err) => console.log(err.response.data));
       })
-      .catch(err => console.log(err.response.data));
+      .catch((err) => console.log(err.response.data));
   }
 
   render() {

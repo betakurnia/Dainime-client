@@ -11,13 +11,12 @@
     "axios": "^0.21.2",
     "babel-jest": "^24.9.0",
     "concurrently": "^5.0.0",
-    "dateformat": "^3.0.3",
     "disqus-react": "^1.0.7",
     "http-proxy-middleware": "^0.20.0",
+    "moment": "^2.29.4",
     "react": "^16.12.0",
     "react-autocomplete": "^1.8.1",
     "react-content-loader": "^5.0.1",
-    "react-device-detect": "^1.9.10",
     "react-dom": "^16.12.0",
     "react-filter-search": "^1.0.9",
     "react-paginate": "^6.3.2",
@@ -35,7 +34,14 @@
     "eject": "react-scripts eject",
     "build-css": "node-sass --include-path scss scss/main.scss src/App.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "client": "concurrently \"npm run start\" \"npm run watch-css\""
+    "client": "concurrently \"npm run start\" \"npm run watch-css\"",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
+  },
+  "lint-staged": {
+    "./src/**/*.{js,ts,tsx,jsx}": [
+      "prettier --write"
+    ],
+    "./src/**/*.{css,scss,md}": "prettier --write"
   },
   "eslintConfig": {
     "extends": "react-app"
