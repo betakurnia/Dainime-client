@@ -17,7 +17,7 @@ export const getLastRelease = (page, isTrue = false) => (dispatch) => {
   }
   httpClient
     .get(`/api/recent-release/?page=${page}`)
-    .then((res) => dispatch({ type: GET_LAST_RELEASE, payload: res?.data }))
+    .then((res) => dispatch({ type: GET_LAST_RELEASE, payload:res.data }))
     .catch((err) => console.log(err.response.data));
 };
 
