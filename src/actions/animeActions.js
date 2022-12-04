@@ -14,8 +14,7 @@ export const getAnime = (title) => (dispatch) => {
   httpClient
     .get(`/api/anime/${title}`)
     .then((res) => {
-      dispatch({ type: GET_ANIME, payload: res.data });
-      document.title = `${res.data[0].title} `;
+      dispatch({ type: GET_ANIME, payload: res?.data });
     })
     .catch((err) => console.log(err.response.data));
 };

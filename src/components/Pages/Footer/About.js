@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RecentRelease from '../../Common/RecentRelease';
-import Spinner from '../../Common/Spinner';
 import PropTypes from 'prop-types';
 
 class About extends Component {
@@ -10,28 +9,25 @@ class About extends Component {
   }
 
   render() {
-    const { loading } = this.props.episodeAnime;
-
     return (
       <div>
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
+            <div className="col-12 col-lg-8 mb-4">
               <div className="card">
                 <div className="utility_background_light-black text-white pagination-sm  ">
                   <div className="card-header ">
                     <div className="d-flex">
-                      <h5>About Us</h5>
+                      <h2 className="h5 mb-0">About Us</h2>
                     </div>
                   </div>
                 </div>
                 <div className="card-body">
                   {' '}
-                  <h4 className="utility_text_18px text-light-black">
+                  <h3 className="mb-0 utility_text_18px text-light-black">
                     Dainime
-                  </h4>
-                  <div className="mt-3"></div>
-                  <p className="text-light-gray">
+                  </h3>
+                  <p className="text-light-gray mt-3">
                     Dainime adalah website download anime subtitle
                     Indonesia,Kami selalu berusaha memberikan pelayanan terbaik
                     dengan update anime terbaru dan subtitle berkualitas
@@ -39,7 +35,7 @@ class About extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 d-none d-lg-block">
               <RecentRelease />
             </div>
           </div>

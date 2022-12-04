@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RecentRelease from '../../Common/RecentRelease';
-import Spinner from '../../Common/Spinner';
 import PropTypes from 'prop-types';
 
 class Contact extends Component {
@@ -10,8 +9,6 @@ class Contact extends Component {
   }
 
   render() {
-    const { loading } = this.props.episodeAnime;
-
     return (
       <div>
         <div className="container">
@@ -28,9 +25,9 @@ class Contact extends Component {
                 <div className="card-body">
                   {' '}
                   <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-6">
                       <div className="row">
-                        <div className="col-lg-3">
+                        <div className="col-3">
                           <img
                             className="img-fluid"
                             src="/image/helper/facebook.png"
@@ -46,9 +43,9 @@ class Contact extends Component {
                         <h4 className="utility_text_18px ">dainime</h4>
                       </a>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-6">
                       <div className="row">
-                        <div className="col-lg-3">
+                        <div className="col-3">
                           <img
                             className="img-fluid"
                             src="/image/helper/instagram.png"
@@ -65,11 +62,10 @@ class Contact extends Component {
                       </a>
                     </div>
                   </div>
-                  <div className="mt-3"></div>
-                  <div className="row">
-                    <div className="col-lg-6">
+                  <div className="row mt-3">
+                    <div className="col-6">
                       <div className="row">
-                        <div className="col-lg-3">
+                        <div className="col-3">
                           <img
                             className="img-fluid"
                             src="/image/helper/email.png"
@@ -78,13 +74,13 @@ class Contact extends Component {
                         </div>
                       </div>
                       <h4>email</h4>
-                      <h4 className="utility_text_18px ">dainimed@gmail.com</h4>
+                      <h4 className="utility_text_18px">dainimed@gmail.com</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 d-none d-lg-block">
               <RecentRelease />
             </div>
           </div>

@@ -1,90 +1,14 @@
 import React from 'react';
+import UrlLink from './UrlLink';
 
 function DownloadLink(props) {
-  const episode = Array.from(props.episode);
-
-  const episoded = episode.map((episode) => (
-    <>
-      <tr>
-        <th scope="row">360p</th>
-        <td>
-          {episode.FileUpload360p === '' ? (
-            <p className="text-muted">FileUpload</p>
-          ) : (
-            <a href={episode.FileUpload360p}>FileUpload</a>
-          )}
-        </td>
-        <td>
-          {episode.ClickNUpload360p === '' ? (
-            <p className="text-muted">{props.clickNupload}</p>
-          ) : (
-            <a href={episode.ClickNUpload360p}>{props.clickNupload}</a>
-          )}
-        </td>
-        <td>
-          {episode.Upload360p === '' ? (
-            <p className="text-muted">Upload</p>
-          ) : (
-            <a href={episode.Upload360p}>Upload</a>
-          )}
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">480p</th>
-        <td>
-          {episode.FileUpload480p === '' ? (
-            <p className="text-muted">FileUpload</p>
-          ) : (
-            <a href={episode.FileUpload480p}>FileUpload</a>
-          )}
-        </td>
-        <td>
-          {episode.ClickNUpload480p === '' ? (
-            <p className="text-muted">{props.clickNupload}</p>
-          ) : (
-            <a href={episode.ClickNUpload480p}>{props.clickNupload}</a>
-          )}
-        </td>
-        <td>
-          {episode.Upload480p === '' ? (
-            <p className="text-muted">Upload</p>
-          ) : (
-            <a href={episode.Upload480p}>Upload</a>
-          )}
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">720p</th>
-        <td>
-          {episode.FileUpload480p === '' ? (
-            <p className="text-muted">FileUpload</p>
-          ) : (
-            <a href={episode.FileUpload480p}>FileUpload</a>
-          )}
-        </td>
-        <td>
-          {episode.ClickNUpload480p === '' ? (
-            <p className="text-muted">{props.clickNupload}</p>
-          ) : (
-            <a href={episode.ClickNUpload480p}>{props.clickNupload}</a>
-          )}
-        </td>
-        <td>
-          {episode.Upload720p === '' ? (
-            <p className="text-muted">Upload</p>
-          ) : (
-            <a href={episode.Upload720p}>Upload</a>
-          )}
-        </td>
-      </tr>
-    </>
-  ));
+  const episode = props.episode;
 
   return (
     <div>
       <div className="mt-4"></div>
       <div className="row ">
-        <div className={`${props.column}`}>
+        <div className="col-12">
           <table className="table">
             <thead className="thead-dark">
               <tr>
@@ -94,7 +18,20 @@ function DownloadLink(props) {
                 <th scope="col">UP</th>
               </tr>
             </thead>
-            <tbody className="download-link__table-data">{episoded}</tbody>
+            <tbody className="download-link__table-data">
+              {episode.map((link, idx) => (
+                <UrlLink
+                  key={idx}
+                  fileupload360p={link.Fileupload360p}
+                  clickNupload360={link.ClickNupload360p}
+                  upload360p={link.Upload360p}
+                  fileupload480p={link.Fileupload480p}
+                  clickNupload480p={link.ClickNupload480p}
+                  upload480p={link.Upload480p}
+                  upload720={link.Upload720}
+                />
+              ))}
+            </tbody>
           </table>
         </div>
       </div>

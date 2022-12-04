@@ -3,7 +3,6 @@ import HomeAnime from './HomeAnime';
 import OngoingAnime from './OngoingAnime';
 import AnimePlaceHolder from '../../Common/AnimePlaceHolder';
 import OngoingPlaceHolder from '../../Common/OngoingPlaceHolder';
-
 import { connect } from 'react-redux';
 import { getLastRelease } from '../../../actions/episodeAnimeActions';
 import { getOngoingAnime } from '../../../actions/animeActions';
@@ -12,8 +11,6 @@ import PropTypes from 'prop-types';
 
 class Home extends Component {
   componentDidMount() {
-    document.title = 'Dainime | Download anime subtitle Indonesia';
-
     this.props.getLastRelease(0, true);
 
     this.props.getOngoingAnime();
@@ -33,28 +30,21 @@ class Home extends Component {
     const loadingEpisodeAnime = this.props.episodeAnime.loading;
 
     return (
-      <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-lg-8">
-              {loadingEpisodeAnime ? (
-                <AnimePlaceHolder />
-              ) : (
-                <HomeAnime
-                  divided="3"
-                  height="utility_height_40px"
-                  lastRelease={lastRelease}
-                  pageCount={pageCount}
-                />
-              )}
-            </div>
-            <div className="col-lg-4 d-none d-lg-block">
-              {loadingAnime ? (
-                <OngoingPlaceHolder />
-              ) : (
-                <OngoingAnime ongoingAnime={ongoingAnime} />
-              )}
-            </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-lg-8">
+            {loadingEpisodeAnime ? (
+              <AnimePlaceHolder />
+            ) : (
+              <HomeAnime lastRelease={lastRelease} pageCount={pageCount} />
+            )}
+          </div>
+          <div className="col-lg-4 d-none d-lg-block">
+            {loadingAnime ? (
+              <OngoingPlaceHolder />
+            ) : (
+              <OngoingAnime ongoingAnime={ongoingAnime} />
+            )}
           </div>
         </div>
       </div>

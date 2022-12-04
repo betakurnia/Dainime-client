@@ -10,11 +10,11 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  anime: {},
-  ongoingAnime: {},
-  animeList: {},
-  newSeason: {},
-  schedule: {},
+  anime: [],
+  ongoingAnime: [],
+  animeList: [],
+  newSeason: [],
+  schedule: [],
   findAnime: {},
   loading: false,
 };

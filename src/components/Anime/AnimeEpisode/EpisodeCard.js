@@ -9,16 +9,21 @@ const Card = (props) => {
     <>
       <Link
         to={`/${title
-          ?.toLowerCase()
-          ?.split(' ')
-          ?.join('-')}/episode-${episode}`}
+          .toLowerCase()
+          .split(' ')
+          .join('-')}${episode ? `/episode-${episode}` : ''}`}
+        className="utility_height_125px"
       >
         <a
           href="/#"
-          className=" text-light-black utility_text-decoration_underline  anime-header__title_text_18px"
+          className="text-light-black utility_text-decoration_underline  anime-header__title_text_18px"
         >
-          <h4 className={`text-uppercase d-flex align-items-end`}>{title}</h4>
-          <h5>Episode {episode}</h5>
+          <h3
+            className={`mb-0 text-uppercase d-flex align-items-end utility_height_40px overflow-hidden`}
+          >
+            {title}
+          </h3>
+          {episode && <h4>Episode {episode}</h4>}
         </a>
       </Link>
       <p className="text-light-gray utility_text_14px">
@@ -32,7 +37,7 @@ const Card = (props) => {
           .join('-')}/episode-${episode}`}
       >
         <img
-          src={`./image/episode-anime/${imageEpisode}`}
+          src={`./image/episode-anime/AOT.jpeg`}
           alt={imageEpisode}
           className="img-fluid"
         />

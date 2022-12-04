@@ -4,7 +4,6 @@ import AnimeInfo from './AnimeInfo';
 import RecentRelease from '../../Common/RecentRelease';
 import AnimePlaceHolder from '../../Common/AnimePlaceHolder';
 import RecentReleasePlaceHolder from '../../Common/RecentReleasePlaceHolder';
-import Spinner from '../../Common/Spinner';
 import Comment from './Comment';
 import { connect } from 'react-redux';
 import { getAnime } from '../../../actions/animeActions';
@@ -34,8 +33,6 @@ class Anime extends Component {
 
     const { pageCount } = this.props.helper;
 
-    const loading = this.props.episodeAnime.loading;
-
     const loadingAnime = this.props.episodeAnime.loading;
 
     const loadingEpisodeAnime = this.props.episodeAnime.loading;
@@ -44,8 +41,8 @@ class Anime extends Component {
       <div>
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <div className="col-12 col-lg-8">
+              <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
                   <a
                     class="nav-link active"
@@ -98,8 +95,6 @@ class Anime extends Component {
                     <AnimePlaceHolder />
                   ) : (
                     <AllAnime
-                      column="col-lg-3"
-                      divided="3"
                       allEpisode={allEpisode}
                       title={this.props.match.params.title}
                       pageCount={pageCount}
@@ -120,16 +115,11 @@ class Anime extends Component {
                   role="tabpanel"
                   aria-labelledby="contact-tab"
                 >
-                  <div className="mt-4"></div>
-                  <AnimeInfo
-                    column="col-lg-4"
-                    column2="col-lg-8"
-                    anime={anime}
-                  />
+                  <AnimeInfo anime={anime} />
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-12 col-lg-4 d-none d-lg-block">
               {loadingEpisodeAnime ? (
                 <RecentReleasePlaceHolder />
               ) : (

@@ -3,7 +3,6 @@ import NewSeason from './NewSeason';
 import RecentRelease from '../../Common/RecentRelease';
 import AnimePlaceHolder from '../../Common/AnimePlaceHolder';
 import RecentReleasePlaceHolder from '../../Common/RecentReleasePlaceHolder';
-import Spinner from '../../Common/Spinner';
 import { connect } from 'react-redux';
 import { getNewSeason } from '../../../actions/animeActions';
 import { getNewSeasonCount } from '../../../actions/helperActions';
@@ -21,8 +20,6 @@ class NewSeasons extends Component {
 
     const { pageCount } = this.props.helper;
 
-    const loading = this.props.anime.loading;
-
     const loadingAnime = this.props.anime.loading;
 
     const loadingEpisodeAnime = this.props.anime.loading;
@@ -35,16 +32,10 @@ class NewSeasons extends Component {
               {loadingAnime ? (
                 <AnimePlaceHolder />
               ) : (
-                <NewSeason
-                  column="col-lg-3"
-                  divided="3"
-                  height="utility_height_40px"
-                  newSeason={newSeason}
-                  pageCount={pageCount}
-                />
+                <NewSeason newSeason={newSeason} pageCount={pageCount} />
               )}
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 d-none d-lg-block">
               {loadingEpisodeAnime ? (
                 <RecentReleasePlaceHolder />
               ) : (

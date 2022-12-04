@@ -9,11 +9,11 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  episode: {},
-  lastRelease: {},
-  lastReleased: {},
+  episode: [],
+  lastRelease: [],
+  lastReleased: [],
   lastEpisode: {},
-  allEpisode: {},
+  allEpisode: [],
   loading: false,
 };
 

@@ -35,7 +35,6 @@ export const getEpisode = (title, episode) => (dispatch) => {
     .then((res) => {
       dispatch({ type: GET_EPISODE, payload: res.data });
       dispatch(setLoadingFalse());
-      document.title = `${res.data[0].title} Episode ${res.data[0].episode}`;
     })
     .catch((err) => console.log(err.response.data));
 };

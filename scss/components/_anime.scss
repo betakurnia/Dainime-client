@@ -2,13 +2,13 @@
   color: $color-white;
   background-color: $color-light-black;
   margin-right: 0.4rem;
-  border-color: #dee2e6 #dee2e6 #fff;
+  border-color: $color-light-white $color-light-white $color-white;
 }
 
 .nav-tabs .nav-link.active {
   color: $color-light-black;
   background-color: $color-white;
-  border-color: #dee2e6 #dee2e6 #fff;
+  border-color: $color-light-white $color-light-white $color-white;
 }
 
 table.anime-description__title > tr {

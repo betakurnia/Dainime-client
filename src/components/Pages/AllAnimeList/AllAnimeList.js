@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAnimeList } from '../../../actions/animeActions';
 import { getAnimeListSort } from '../../../actions/animeActions';
-import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
-import moment from 'moment';
+import EpisodeCard from '../../Anime/AnimeEpisode/EpisodeCard';
+import ReactPaginate from '../../Common/ReactPaginate';
 import PropTypes from 'prop-types';
 
 class AllAnimeList extends Component {
@@ -24,134 +23,41 @@ class AllAnimeList extends Component {
   };
 
   render() {
-    const alphabet = this.props.alphabet[0];
-    const alphabet2 = this.props.alphabet[1];
-    const alphabet3 = this.props.alphabet[2];
-
     const { pageCount } = this.props;
 
-    const animeList = Array.from(this.props.animeList);
+    const animeList = this.props.animeList;
 
     const totalPage = Math.ceil(pageCount / 16);
-
-    const animeListed = animeList.map((animeList, index) => (
-      <div className={this.props.column} key={animeList._id}>
-        <div>
-          <Link
-            to={`/${animeList.title
-              .toLowerCase()
-              .split(' ')
-              .join('-')}`}
-          >
-            <a
-              href="/#"
-              className=" text-light-black utility_text-decoration_underline  anime-header__title_text_18px"
-            >
-              <h4
-                className={`text-uppercase ${this.props.height} d-flex align-items-end`}
-              >
-                {animeList.title + '          '}
-              </h4>
-            </a>
-          </Link>
-          <p className="text-light-gray utility_text_14px">
-            {' '}
-            {moment(animeList.aired, 'mmmm d, yyyy')}
-          </p>
-          <Link
-            to={`/${animeList.title
-              .toLowerCase()
-              .split(' ')
-              .join('-')}`}
-          >
-            <img
-              className="img-fluid"
-              src={`/image/anime/${animeList.imageAnime}`}
-              alt={animeList.imageAnime}
-            />
-          </Link>
-          {index % this.props.divided === 0 ? (
-            <div className="mt-3"></div>
-          ) : null}
-        </div>
-      </div>
-    ));
-
-    const alphabeted = alphabet.map((alphabet, index) => (
-      <Link to={`/anime-list/${alphabet}`} key={index}>
-        <button className="btn btn-light btn-sm">{alphabet}</button>
-      </Link>
-    ));
-
-    const alphabeted2 = alphabet2.map((alphabeted2, index) => (
-      <Link to={`/anime-list/${alphabeted2}`} key={index}>
-        <button className="btn btn-light btn-sm">{alphabeted2}</button>
-      </Link>
-    ));
-
-    let alphabeted3;
-    if (alphabet3) {
-      alphabeted3 = alphabet3.map((alphabeted3, index) => (
-        <Link to={`/anime-list/${alphabeted3}`} key={index}>
-          <button className="btn btn-light btn-sm">{alphabeted3}</button>
-        </Link>
-      ));
-    }
 
     return (
       <div>
         <div className="card">
-          <div className="utility_background_light-black text-white pagination-sm  ">
-            <div className="card-header ">
-              <div className="d-flex justify-content-between align-items-center">
-                <h5>Daftar Anime</h5>
-                <nav aria-label="...">
-                  {totalPage !== 1 && (
-                    <ReactPaginate
-                      previousLabel={<i className="	fa fa-caret-left"></i>}
-                      nextLabel={<i className="	fa fa-caret-right"></i>}
-                      pageClassName={' page-item'}
-                      pageCount={totalPage}
-                      marginPagesDisplayed={0}
-                      pageRangeDisplayed={4}
-                      pageLinkClassName={' page-link'}
-                      onPageChange={this.handlePageClick}
-                      containerClassName={'pagination'}
-                      breakLabel={'...'}
-                      breakClassName={'page-item'}
-                      breakLinkClassName={'page-link'}
-                      activeClassName={'active'}
-                      previousClassName={' page-item'}
-                      nextClassName={' page-item'}
-                      previousLinkClassName={' page-link'}
-                      nextLinkClassName={' page-link'}
-                    />
-                  )}
-                </nav>
-              </div>
+          <div className="card-header utility_background_light-black text-white pagination-sm  ">
+            <div className="d-flex justify-content-between align-items-center">
+              <h2 className="h5 mb-0">Daftar Anime</h2>
+              <nav>
+                {totalPage !== 1 && (
+                  <ReactPaginate
+                    totalPage={totalPage}
+                    onPageChange={this.handlePageClick}
+                  />
+                )}
+              </nav>
             </div>
           </div>
-          <div className="card-body">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="d-flex justify-content-between">
-                  <Link to={`/anime-list`}>
-                    <button className="btn btn-light btn-sm">All</button>
-                  </Link>
-                  {alphabeted}
-                </div>
-                <div className="mt-3"></div>
-                <div className="d-flex justify-content-between">
-                  {alphabeted2}
-                </div>
-                <div className="mt-3"></div>
-                <div className="d-flex justify-content-between">
-                  {alphabeted3}
-                </div>
-                <div className="mt-3"></div>
+        </div>
+        <div className="card-body">
+          <div className="row">
+            {animeList.map((anime) => (
+              <div key={anime._id} className="col-6 col-md-4 col-lg-3 mt-3">
+                <EpisodeCard
+                  title={anime.title}
+                  episode={anime.episode}
+                  date={anime.date}
+                  imageEpisode={anime.imageEpisode}
+                />
               </div>
-            </div>
-            <div className="row">{animeListed}</div>
+            ))}
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import Disqus from 'disqus-react';
 
 class Article extends React.Component {
   render() {
-    const disqusShortname = 'example';
+    const disqusShortname = 'dainime';
     const disqusConfig = {
       url: this.props.article.url,
       identifier: this.props.article.id,

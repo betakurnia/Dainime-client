@@ -8,7 +8,6 @@ import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
 import Home from './components/Pages/Home/Home';
 import AllAnimeLists from './components/Pages/AllAnimeList/AllAnimeLists';
-import AllAnimeListsSort from './components/Pages/AllAnimeList/AllAnimeListsSort';
 import NewSeasons from './components/Pages/NewSeason/NewSeasons';
 import Schedules from './components/Pages/Schedule/Schedules';
 import Contact from './components/Pages/Footer/Contact';
@@ -32,10 +31,6 @@ class App extends Component {
             ></Route>
             <Switch>
               <Route exact path="/anime-list" component={AllAnimeLists}></Route>
-              <Route
-                path="/anime-list/:sort"
-                component={AllAnimeListsSort}
-              ></Route>
               <Route path="/new-season" component={NewSeasons}></Route>
               <Route path="/schedule" component={Schedules}></Route>
               <Route path="/contact" component={Contact}></Route>
